@@ -28,4 +28,16 @@
     --icon: /*[[icon]]*/;
     --shadow: /*[[shadow]]*/;
   }
+
+  /* Header. */
+  .headerSecured-container {
+    color: var(--light) !important;
+    background-color: var(--darker) !important;
+  }
+  .headerSecuredDesktop-logo {
+    background-color: var(--darker) !important;
+  }
+  .headerSecuredDesktop-logo:hover::before {
+    opacity: 0.8;
+  }
 }

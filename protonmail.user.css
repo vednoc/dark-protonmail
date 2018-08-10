@@ -59,4 +59,35 @@
     color: var(--light);
     background-color: var(--dark);
   }
+
+
+  /* Toolbar. */
+  .pm_toolbar {
+    box-shadow: none;
+    /* TODO: change bgc */
+    background-color: var(--shadow);
+  }
+
+  /* Toolbar buttons. */
+  .pm_buttons {
+    border: 1px solid var(--darker);
+    color: var(--icon);
+  }
+  /* Button backgrounds, borders, shadow. */
+  .pm_buttons a,
+  .pm_buttons .pm_buttons-child,
+  .pm_buttons .pm_buttons:not(:first-of-type) {
+    box-shadow: none !important;
+    border-color: var(--darker) !important;
+    background: none !important;
+  }
+  /* Toolbar buttons on event. */
+  .pm_buttons > a:focus,
+  .pm_buttons > a:hover,
+  .pm_buttons > a.active,
+  .pm_buttons > button:focus,
+  .pm_buttons > button:hover {
+    color: var(--lighter) !important;
+    background-color: var(--darker) !important;
+  }
 }

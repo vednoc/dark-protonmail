@@ -112,4 +112,29 @@
   .scrollbox-container::after {
     display: none !important
   }
+
+
+  /* Conversations. */
+  .conversation {
+    background-color: var(--darker);
+    border: none;
+  }
+  /* Separator. */
+  body #conversation-list-columns {
+    border-color: var(--darker);
+  }
+  /* Unread/marked conversations. */
+  .conversation:not(.read)::before,
+  .conversation.marked::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    top: 0;
+    background-color: var(--mred);
+  }
+  /* Read conversations. */
+  .conversation.read {
+    background-color: transparent;
+  }
 }

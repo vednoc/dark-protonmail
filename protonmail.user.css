@@ -40,4 +40,23 @@
   .headerSecuredDesktop-logo:hover::before {
     opacity: 0.8;
   }
+
+
+  /* Sidebar. */
+  #ptSidebar {
+    background-color: var(--dark) !important;
+  }
+  .sidebarApp-item .navigationItem-aside {
+    background: none !important;
+  }
+  .sidebarApp-item.active {
+    background: var(--dark);
+  }
+
+
+  /* Content area. */
+  #conversation-view .frame, #pm_main {
+    color: var(--light);
+    background-color: var(--dark);
+  }
 }

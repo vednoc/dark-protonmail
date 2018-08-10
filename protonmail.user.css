@@ -90,4 +90,26 @@
     color: var(--lighter) !important;
     background-color: var(--darker) !important;
   }
+
+
+  /* Dropdown. */
+  .pm_dropdown {
+    border-color: var(--darker);
+    background-color: var(--dark);
+  }
+  /* Dropdown title. */
+  .dropdown-folder-title {
+    border-bottom-color: var(--darker);
+  }
+  /* Folder container. */
+  .scrollbox-container {
+    border-color: var(--darker);
+    background-image: none;
+    background-color: transparent;
+  }
+  /* Remove weird gradients. */
+  .scrollbox-container::before,
+  .scrollbox-container::after {
+    display: none !important
+  }
 }

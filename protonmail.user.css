@@ -201,4 +201,23 @@
   #pm_composer .composer footer .pm_button.primary {
     background: var(--accent);
   }
+
+
+  /* Squire popover. */
+  .squire-popover {
+    border-color: var(--darker);
+    background: var(--dark);
+  }
+  /* Toolbar. */
+  [class*="squireToolbar"] {
+    border-color: var(--dark);
+    background: var(--dark);
+  }
+  /* Icons on event. */
+  [class*="squireToolbar-action-options"],
+  [class*="squireToolbar-action-color"],
+  [class*="squireToolbar-action-"]:hover {
+    border-color: var(--dark) !important;
+    background-color: var(--dark) !important;
+  }
 }

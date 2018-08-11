@@ -64,8 +64,7 @@
   /* Toolbar. */
   .pm_toolbar {
     box-shadow: none;
-    /* TODO: change bgc */
-    background-color: var(--shadow);
+    /* background-color: var(--shadow); */
   }
 
   /* Toolbar buttons. */
@@ -131,5 +130,29 @@
   .conversation.read,
   body #conversation-list-rows .conversation.read {
     background-color: transparent;
+  }
+
+
+  /* Message area. */
+  #conversation-view .message {
+    border-color: var(--darker);
+  }
+  /* Header. */
+  #conversation-view header {
+    border-color: var(--darker);
+  }
+  /* Header details. */
+  #conversation-view .message .summary,
+  #conversation-view .message .details {
+    border-color: var(--darker);
+    background-color: transparent;
+  }
+  /* Date. */
+  #conversation-view .message .summary * {
+    background-color: transparent !important;
+  }
+  /* Sent tag. */
+  .pm_tag {
+    color: var(--light) !important;
   }
 }

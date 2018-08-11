@@ -155,4 +155,50 @@
   .pm_tag {
     color: var(--light) !important;
   }
+
+
+  /* Compose. */
+  #pm_composer .composer {
+    color: var(--lighter);
+    background: var(--darker);
+  }
+  /* Header. */
+  .composerHeader-container,
+  .composerOptions-container {
+    color: var(--lighter);
+    background: var(--darker);
+  }
+  /* Inputs. */
+  .composerInputMeta-overlay,
+  #pm_composer .composer .row,
+  #pm_composer .composer .row select,
+  #pm_composer .composer .row input {
+    color: var(--lighter);
+    border-color: var(--dark);
+    background: var(--darker);
+  }
+
+  /* Message area. */
+  .composer-container,
+  .squire-container {
+    color: var(--light);
+    background: var(--dark);
+  }
+
+  /* Footer. */
+  #pm_composer .composer footer,
+  .squireEditor-loaded footer {
+    border-top-color: var(--darker);
+    background: var(--darker);
+  }
+  /* Buttons. */
+  #pm_composer .composer footer .pm_button,
+  .squireEditor-loaded footer .pm_button {
+    color: var(--light);
+    border-color: var(--darker);
+    background: var(--dark);
+  }
+  #pm_composer .composer footer .pm_button.primary {
+    background: var(--accent);
+  }
 }

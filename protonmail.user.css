@@ -115,26 +115,21 @@
 
 
   /* Conversations. */
-  .conversation {
+  .conversation,
+  body #conversation-list-rows .conversation {
+    border-bottom-color: var(--darker) !important;
     background-color: var(--darker);
-    border: none;
   }
   /* Separator. */
   body #conversation-list-columns {
     border-color: var(--darker);
   }
-  /* Unread/marked conversations. */
-  .conversation:not(.read)::before,
   .conversation.marked::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 5px;
-    top: 0;
-    background-color: var(--mred);
+    background-color: var(--accent);
   }
   /* Read conversations. */
-  .conversation.read {
+  .conversation.read,
+  body #conversation-list-rows .conversation.read {
     background-color: transparent;
   }
 }

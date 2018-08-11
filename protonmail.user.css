@@ -220,4 +220,39 @@
     border-color: var(--dark) !important;
     background-color: var(--dark) !important;
   }
+
+
+  /* Modal. */
+  .pm_modal .modal-dialog {
+    border: 1px solid var(--darker) !important;
+    background: var(--dark) !important;
+  }
+  .pm_modal .modal-dialog .modal-footer {
+    background: none !important;
+  }
+  .pm_modal .modal-dialog .modal-content .modal-body {
+    box-shadow: inset 0 1px 0 var(--darker), inset 0 -1px 0 var(--darker);
+  }
+  /* Modal buttons. */
+  .pm_modal .modal-dialog .close {
+    top: 0;
+    right: 0;
+    color: var(--light);
+    background: none;
+  }
+  .pm_button {
+    color: var(--light);
+    border-color: var(--darker);
+    background-color: var(--darker);
+  }
+  .pm_button:hover,
+  .pm_button:focus {
+    color: var(--lighter);
+    background-color: var(--dark);
+  }
+  .labelModal-container .pm_button.primary {
+    color: var(--lighter);
+    border-color: var(--accent);
+    background-color: var(--accent);
+  }
 }

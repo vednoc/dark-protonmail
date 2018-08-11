@@ -40,13 +40,18 @@
   .headerSecuredDesktop-logo:hover::before {
     opacity: 0.8;
   }
+  /* Search box. */
+  .search-form-fieldset {
+    background: var(--dark);
+  }
 
 
   /* Sidebar. */
   #ptSidebar {
     background-color: var(--dark) !important;
   }
-  .sidebarApp-item .navigationItem-aside {
+  .sidebarApp-item .navigationItem-aside,
+  .sidebarApp-item::after {
     background: none !important;
   }
   .sidebarApp-item.active {
@@ -99,6 +104,15 @@
   /* Dropdown title. */
   .dropdown-folder-title {
     border-bottom-color: var(--darker);
+  }
+  /* Dropdown items. */
+  .pm_dropdown > button,
+  .pm_dropdown > ul > li {
+    border-bottom-color: var(--darker);
+  }
+  .pm_dropdown > button:hover,
+  .pm_dropdown > ul > li:hover {
+    color: var(--accent) !important;
   }
   /* Folder container. */
   .scrollbox-container {
@@ -219,6 +233,19 @@
   [class*="squireToolbar-action-"]:hover {
     border-color: var(--dark) !important;
     background-color: var(--dark) !important;
+  }
+
+
+  /* Expiration settings. */
+  .alert,
+  .alert.alert-info {
+    color: var(--lighter);
+    background: var(--dark);
+  }
+  #pm_composer .composer select {
+    border-radius: 0;
+    color: var(--lighter);
+    background: var(--darker);
   }
 
 

@@ -28,6 +28,30 @@
     --icon:    /*[[icon]]*/;
     --shadow:  /*[[shadow]]*/;
   }
+  body {
+    color: var(--lighter);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--lighter) !important;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--accent);
+  }
+
+  input {
+    color: var(--lighter) !important;
+    background: none !important;
+  }
+
+  blockquote {
+    border-left-color: var(--accent);
+  }
+
+  section {
+    border-color: var(--darker) !important;
   }
 
   /* Header. */

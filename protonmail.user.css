@@ -50,11 +50,11 @@
     color: var(--lighter);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, strong {
     color: var(--lighter) !important;
   }
   
-  a {
+  a, p a {
     text-decoration: none;
     color: var(--accent);
   }
@@ -100,6 +100,13 @@
   .sidebarApp-item.active {
     background: var(--dark);
   }
+  .navigationItem-item {
+    color: var(--light) !important;
+  }
+  .navigationItem-item:hover {
+    color: var(--lighter) !important;
+    background-color: var(--darker) !important;
+  }
 
 
   /* Content area. */
@@ -120,6 +127,11 @@
     border: 1px solid var(--darker);
     color: var(--icon);
   }
+  .pm_buttons.disabled {
+    box-shadow: none !important;
+    border-color: var(--darker) !important;
+    opacity: 0.75 !important;
+  }
   /* Button backgrounds, borders, shadow. */
   .pm_buttons a,
   .pm_buttons .pm_buttons-child,
@@ -136,6 +148,18 @@
   .pm_buttons > button:hover {
     color: var(--lighter) !important;
     background-color: var(--darker) !important;
+  }
+  /* Checkbox. */
+  .customCheckbox-input {
+    background-color: green !important;
+  }
+  .customCheckbox-input + .customCheckbox-mask {
+    border-color: var(--darker) !important;
+    background-color: var(--dark) !important;
+    background-image: none !important;
+  }
+  .customCheckbox-input:checked + .customCheckbox-mask {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAxNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmZmZ9PC9zdHlsZT48L2RlZnM+PGcgaWQ9IkViZW5lXzIiIGRhdGEtbmFtZT0iRWJlbmUgMiI+PGcgaWQ9IkViZW5lXzEtMiIgZGF0YS1uYW1lPSJFYmVuZSAxIj48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03IDEyYTEgMSAwIDAgMS0uNTUtLjE3bC0zLTJhMSAxIDAgMCAxIDEuMS0xLjY2bDIuMTEgMS40IDMuNDctNi4wN2ExIDEgMCAxIDEgMS43NCAxbC00IDdhMSAxIDAgMCAxLS42NC40OHpNMjggOC4wNmgtN2ExIDEgMCAwIDEgMC0yaDdhMSAxIDAgMCAxIDAgMnoiLz48L2c+PC9nPjwvc3ZnPg==") !important;
   }
 
 
@@ -208,9 +232,10 @@
   #conversation-view .message .summary * {
     background-color: transparent !important;
   }
-  /* Sent tag. */
-  .pm_tag {
+  /* Sent/more tag. */
+  .pm_button.more, .pm_tag {
     color: var(--light) !important;
+    background-color: var(--darker) !important;
   }
 
 

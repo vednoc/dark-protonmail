@@ -28,6 +28,24 @@
     --icon:    /*[[icon]]*/;
     --shadow:  /*[[shadow]]*/;
   }
+
+  /* Sidebars. */
+  ::-webkit-scrollbar {
+    width: 10px !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    border: 1px solid var(--dark);
+    background-color: var(--darker) !important;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--dark) !important;
+  }
+  ::-webkit-scrollbar-thumb:hover,
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--accent) !important;
+  }
+
+
   body {
     color: var(--lighter);
   }

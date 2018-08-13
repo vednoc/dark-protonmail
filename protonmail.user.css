@@ -83,9 +83,36 @@
   .headerSecuredDesktop-logo:hover::before {
     opacity: 0.8;
   }
+
+
   /* Search box. */
   .search-form-fieldset {
     background: var(--dark);
+  }
+  /* Search modal. */
+  .searchForm-advanced-container {
+    box-shadow: 0 0 0 1px var(--darker);
+  }
+  .searchForm-advanced-main,
+  .searchForm-advanced-wrapper {
+    background-color: var(--dark);
+  }
+  .searchForm-advanced-container label {
+    color: var(--light);
+  }
+  .searchForm-advanced-wrapper .pm_select {
+    border: 1px solid var(--darker);
+    box-shadow: none;
+    color: var(--light);
+    background: var(--dark);
+  }
+  .searchForm-advanced-wrapper .pm_select select {
+    color: var(--light);
+    background: var(--dark);
+  }
+  .pm_form input[type=text],
+  .pm_form input[type=text]:hover {
+    border-color: var(--darker);
   }
 
 
@@ -149,6 +176,16 @@
     color: var(--lighter) !important;
     background-color: var(--darker) !important;
   }
+
+
+  /* Button. */
+  .pm_button.primary {
+    color: var(--lighter);
+    border-color: var(--accent);
+    background-color: var(--accent);
+  }
+
+
   /* Checkbox. */
   .customCheckbox-input {
     background-color: green !important;

@@ -355,8 +355,9 @@
 
 
   /* Modal. */
-  .pm_modal .modal-dialog {
-    border: 1px solid var(--darker) !important;
+  .pm_modal .modal-dialog,
+  .pm_modal .modal-dialog .modal-content {
+    border-color: var(--darker) !important;
     background: var(--dark) !important;
   }
   .pm_modal .modal-dialog .modal-footer {
@@ -386,5 +387,9 @@
     color: var(--lighter);
     border-color: var(--accent);
     background-color: var(--accent);
+  }
+  .dropzone {
+    border-color: var(--shadow);
+    background: var(--darker);
   }
 }

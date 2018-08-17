@@ -461,4 +461,20 @@
     border-color: var(--darker);
     background: var(--dark);
   }
+
+
+  /* Settings dashboard. */
+  .settingsDashboard-plans,
+  .settingsDashboard-plans::after,
+  .settingsDashboard-plans::before {
+    background: none !important;
+  }
+  .settingsDashboard-overview-section-table-container .overviewSection-container .overviewSection-tbody-billing {
+    background: var(--darker);
+  }
+  /* Purple text. */
+  .overviewSection-container [class*="Btn"],
+  html.protonmail .text-purple {
+    color: var(--accent) !important;
+  }
 }

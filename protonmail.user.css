@@ -134,6 +134,18 @@
     color: var(--lighter) !important;
     background-color: var(--darker) !important;
   }
+  /* Compose button. */
+  .sidebarApp-container .sidebar-btn-compose,
+  .pm_button.primary {
+    border-color: var(--accent);
+    background-color: var(--accent);
+  }
+  .sidebarApp-container .sidebar-btn-compose:hover,
+  .pm_button.primary:hover {
+    box-shadow: inset 0 0 0 32px var(--shadow);
+    border-color: var(--accent);
+    background-color: var(--accent);
+  }
 
 
   /* Content area. */
@@ -153,6 +165,9 @@
   .pm_buttons {
     border: 1px solid var(--darker);
     color: var(--icon);
+  }
+  .pm_buttons > * {
+    border-left-color: var(--darker);
   }
   .pm_buttons.disabled {
     box-shadow: none !important;

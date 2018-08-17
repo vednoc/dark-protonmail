@@ -233,6 +233,22 @@
   .pm_dropdown > ul > li:hover {
     color: var(--accent) !important;
   }
+  /* Links. */
+  .pm_dropdown > a,
+  .pm_dropdown > button,
+  .pm_dropdown > ul > li {
+    border-color: var(--darker);
+  }
+  .pm_dropdown > a:hover,
+  .pm_dropdown > button:hover,
+  .pm_dropdown > ul > li:hover {
+    color: var(--accent) !important;
+  }
+  /* Text color. */
+  .navigationUser-dropdown,
+  .dropdown-label-scrollbox-label-text-ellipsis {
+    color: var(--light);
+  }
   /* Folder container. */
   .scrollbox-container {
     border-color: var(--darker);

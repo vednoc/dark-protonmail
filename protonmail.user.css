@@ -29,7 +29,7 @@
     --shadow:  /*[[shadow]]*/;
   }
 
-  /* Sidebars. */
+  /* Scrollbars. */
   ::-webkit-scrollbar {
     width: 10px !important;
   }
@@ -82,6 +82,11 @@
   }
   .headerSecuredDesktop-logo:hover::before {
     opacity: 0.8;
+  }
+  /* Active nav tab. */
+  .navigation > li.active,
+  .navigation > li:hover {
+    border-color: var(--accent);
   }
 
 
@@ -265,6 +270,7 @@
   /* Conversations. */
   .conversation,
   body #conversation-list-rows .conversation {
+    transition: 100ms ease;
     border-bottom-color: var(--darker) !important;
     background-color: var(--darker);
   }
@@ -279,6 +285,9 @@
   .conversation.read,
   body #conversation-list-rows .conversation.read {
     background-color: transparent;
+  }
+  .conversation:hover {
+    background: var(--darker) !important;
   }
 
 

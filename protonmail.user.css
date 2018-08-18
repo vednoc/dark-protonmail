@@ -114,6 +114,22 @@
     border-top-color: var(--accent);
   }
 
+
+  /* Welcome page. */
+  .conversationPlaceholder header {
+    color: var(--lighter);
+    border-bottom-color: var(--darker);
+  }
+  .conversationPlaceholder * {
+    color: var(--light) !important;
+  }
+  .storageBar {
+    background-color: var(--darker) !important;
+  }
+  .storageBar .storageBar-progress {
+    background-color: var(--accent) !important;
+  }
+
   /* Header. */
   .headerSecured-container {
     color: var(--light) !important;

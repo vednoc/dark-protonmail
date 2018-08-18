@@ -130,6 +130,32 @@
     background-color: var(--accent) !important;
   }
 
+
+  /* Command pallete. */
+  .commandPalette-container {
+    background: var(--dark) !important;
+  }
+  .autocomplete-container {
+    border: 1px solid var(--darker) !important;
+    background: var(--dark) !important;
+  }
+  .autocompleteEmails-autocomplete {
+    background: none !important;
+  }
+  /* Items. */
+  .needsclick {
+    border-top-color: var(--darker) !important;
+  }
+  .needsclick[aria-selected="true"] {
+    color: var(--lighter) !important;
+    background: var(--accent) !important;
+  }
+  .needsclick[aria-selected="false"] {
+    color: var(--light) !important;
+    background: var(--dark) !important;
+  }
+
+
   /* Header. */
   .headerSecured-container {
     color: var(--light) !important;

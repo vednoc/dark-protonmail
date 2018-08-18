@@ -72,6 +72,35 @@
     border-color: var(--darker) !important;
   }
 
+
+  /* Login page. */
+  #login {
+    background: none !important;
+  }
+  /* Background. */
+  #login::after {
+    content: "";
+    z-index: -1;
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    bottom: -20px;
+    right: -20px;
+    background: url(assets/img/login.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(10px);
+  }
+  .pm_panel.alt {
+    padding: 20px 30px 0;
+    border-color: var(--shadow);
+    background: var(--shadow);
+  }
+  #pm_footer {
+    color: var(--lighter);
+  }
+
   /* Header. */
   .headerSecured-container {
     color: var(--light) !important;

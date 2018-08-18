@@ -101,6 +101,19 @@
     color: var(--lighter);
   }
 
+
+  /* Loader. */
+  .pm-loader-fullpage {
+    background: var(--dark);
+  }
+  #pm_loading {
+    background: var(--darker);
+  }
+  #pm_loading::after {
+    border: 5px solid var(--darker);
+    border-top-color: var(--accent);
+  }
+
   /* Header. */
   .headerSecured-container {
     color: var(--light) !important;

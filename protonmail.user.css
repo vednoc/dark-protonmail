@@ -48,6 +48,7 @@
 
   body {
     color: var(--lighter);
+    background: var(--dark) !important;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
@@ -70,6 +71,12 @@
 
   section {
     border-color: var(--darker) !important;
+  }
+
+  kbd {
+    color: var(--lighter);
+    background-color: var(--dark);
+    box-shadow: inset 0 0 0 1px var(--darker);
   }
 
 
@@ -157,6 +164,7 @@
 
 
   /* Header. */
+  .headerNoAuth-container,
   .headerSecured-container {
     color: var(--light) !important;
     background-color: var(--darker) !important;
@@ -483,6 +491,9 @@
   .pm_modal .modal-dialog .modal-content {
     border-color: var(--darker) !important;
     background: var(--dark) !important;
+  }
+  .pm_modal .modal-details {
+    border-color: var(--darker);
   }
   .pm_modal .modal-dialog .modal-footer {
     background: none !important;

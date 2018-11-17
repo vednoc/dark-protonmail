@@ -403,6 +403,19 @@
     color: var(--light) !important;
     background-color: var(--darker) !important;
   }
+  /* Attachments. */
+  #attachmentArea {
+    border-color: var(--darker);
+    background-color: var(--darker);
+  }
+  .listAttachments-list .listAttachments-att {
+    border-radius: 6px;
+    color: var(--light);
+    background-color: var(--dark);
+  }
+  .listAttachments-list .listAttachments-att::after {
+    border-right-color: var(--shadow);
+  }
 
 
   /* Compose. */

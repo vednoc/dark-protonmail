@@ -79,30 +79,27 @@
     box-shadow: inset 0 0 0 1px var(--darker);
   }
 
+  .pm_panel {
+    color: var(--lighter);
+  }
+  .pm_panel.alt {
+    background-color: transparent;
+  }
+  a[class^="loginForm"] {
+    color: var(--light) !important;
+    border-color: var(--dark) !important;
+    background-color: var(--dark) !important;
+  }
 
   /* Login page. */
   #login {
-    background: none !important;
+    background-image: none !important;
   }
-  /* Background. */
-  #login::after {
-    content: "";
-    z-index: -1;
-    position: fixed;
-    top: -20px;
-    left: -20px;
-    bottom: -20px;
-    right: -20px;
-    background: url(assets/img/login.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    filter: blur(10px);
-  }
-  .pm_panel.alt {
+  #login .pm_panel-login__inner {
     padding: 20px 30px 0;
-    border-color: var(--shadow);
-    background: var(--shadow);
+    border-color: var(--darker);
+    background-color: var(--darker);
+    box-shadow: 0 4px 16px 0 var(--shadow);
   }
   #pm_footer {
     color: var(--lighter);

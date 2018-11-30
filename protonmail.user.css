@@ -65,6 +65,11 @@
     background: none !important;
   }
 
+  select {
+    color: var(--light) !important;
+    background-color: var(--darker);
+  }
+
   blockquote {
     border-left-color: var(--accent);
   }

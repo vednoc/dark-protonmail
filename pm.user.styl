@@ -9,6 +9,8 @@
 @license      MIT
 @preprocessor stylus
 
+@var text b_radius "Custom border radius" 4px
+
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
 @var color light   "Light color.  " #d1d1d1
@@ -48,6 +50,7 @@
         --green   : green;
         --white   : white;
         --t       : transparent !important;
+        --radius  : b_radius;
     }
 
     // * Use stylus-lang variables with CSS variables.
@@ -70,6 +73,18 @@
     $white   = var(--white);
     $t       = var(--t);
     $radius  = var(--radius);
+
+    // * Color mixin.
+    // ? All colors -> colors: $light, $darker, $dark;
+    // ? Only background-color -> colors: 0, 0, $dark;
+    colors(x, y, z) {
+        if x is a 'call' { color: x !important; }
+        if y is a 'call' { border-color: y !important; }
+        if z is a 'call' { background-color: z !important; }
+    }
+
+    // * Border radius mixin.
+    radius() { border-radius: arguments; }
 
     /* Scrollbars. */
     ::-webkit-scrollbar {

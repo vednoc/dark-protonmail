@@ -149,18 +149,19 @@
         background-color: var(--dark) !important;
     }
 
-    /* Login page. */
+    // * Login page.
     #login {
         background-image: none !important;
-    }
-    #login .pm_panel-login__inner {
-        padding: 20px 30px 0;
-        border-color: var(--darker);
-        background-color: var(--darker);
-        box-shadow: 0 4px 16px 0 var(--shadow);
-    }
-    #pm_footer {
-        color: var(--lighter);
+        .pm_panel-login__inner {
+            padding: 20px 30px 0;
+            radius: $radius;
+            colors: 0, $darker, $dark;
+            box-shadow: 0 4px 16px -2px $shadow;
+            .link { colors: $light, 0, 0; }
+            input { colors: $lighter, $darker, 0; }
+            ::placeholder { colors: $lighter, 0, 0; }
+        }
+        #pm_footer { colors: $lighter, 0, 0; }
     }
 
 

@@ -113,6 +113,8 @@
         color: var(--accent);
     }
 
+    ::placeholder { colors: $lighter, 0, 0; }
+
     input {
         color: var(--lighter) !important;
         background: none !important;
@@ -159,7 +161,6 @@
             box-shadow: 0 4px 16px -2px $shadow;
             .link { colors: $light, 0, 0; }
             input { colors: $lighter, $darker, 0; }
-            ::placeholder { colors: $lighter, 0, 0; }
         }
         #pm_footer { colors: $lighter, 0, 0; }
     }

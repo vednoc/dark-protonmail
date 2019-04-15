@@ -192,6 +192,44 @@
         }
     }
 
+    // * Search bar.
+    [class*="searchForm-container"] {
+        // Search area.
+        .search-form-fieldset {
+            radius: $radius;
+            colors: $lighter, 0, $dark;
+            box-shadow: 0 0 0 1px inset $darker;
+        }
+        // Dropdown.
+        .searchForm-advanced-container {
+            radius: $radius;
+            colors: 0, 0, $dark;
+            box-shadow: 0 0 0 1px $darker, 0 2px 8px 0 $shadow;
+            // Fields background reset.
+            [class*="searchForm-advanced-"] { colors: $lighter, 0, $t; }
+            label, .fa { color: $light; }
+            // Inputs and buttons.
+            input, button {
+                radius: $radius;
+                box-shadow: 0 1px 4px 0 inset $shadow;
+                colors: 0, $darker, 0;
+                &:focus { colors: 0, $blue, 0; }
+                &[type="submit"] { &, .fa { colors: $white, $blue, $blue; }}
+            }
+            // Select menus.
+            .pm_select {
+                radius: $radius;
+                colors: 0, 0, $t;
+                box-shadow: 0 0 0 1px inset $darker;
+                select {
+                    radius: $radius;
+                    box-shadow: 0 1px 4px 0 inset $shadow;
+                    &:focus { box-shadow: 0 0 0 1px inset $blue; }
+                }
+            }
+        }
+    }
+
     // * Global -> Loader.
     .pm-loader-fullpage { colors: 0, 0, $dark; }
 
@@ -251,37 +289,6 @@
                 &[aria-selected="true"], &:hover { colors: $light, 0, $darker; }
             }
         }
-    }
-
-
-    /* Search box. */
-    .search-form-fieldset {
-        background: var(--dark);
-    }
-    /* Search modal. */
-    .searchForm-advanced-container {
-        box-shadow: 0 0 0 1px var(--darker);
-    }
-    .searchForm-advanced-main,
-    .searchForm-advanced-wrapper {
-        background-color: var(--dark);
-    }
-    .searchForm-advanced-container label {
-        color: var(--light);
-    }
-    .searchForm-advanced-wrapper .pm_select {
-        border: 1px solid var(--darker);
-        box-shadow: none;
-        color: var(--light);
-        background: var(--dark);
-    }
-    .searchForm-advanced-wrapper .pm_select select {
-        color: var(--light);
-        background: var(--dark);
-    }
-    .pm_form input[type=text],
-    .pm_form input[type=text]:hover {
-        border-color: var(--darker);
     }
 
 

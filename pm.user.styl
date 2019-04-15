@@ -164,6 +164,32 @@
         #pm_footer { colors: $lighter, 0, 0; }
     }
 
+    // * Navbar.
+    header[class*="header"] {
+        min-height: 50px;
+        colors: $lighter, 0, $dark;
+        box-shadow: 0 1px 0 0 $darker;
+        // Some styles for the logo.
+        [class*="-logo"] {
+            colors: 0, 0, $t;
+            &::before { transition: 0.15s ease; }
+            &:hover::before { opacity: 0.8; }
+        }
+        // Navigation on the right.
+        .navigation > {
+            li {
+                min-height: 51px;
+                colors: $lighter, 0, 0;
+                &:hover { colors: $light, $accent, 0; }
+                &.active { colors: $accent, $accent, $darker; }
+            }
+        }
+        // Sub-nav height reset.
+        >[class*="Desktop-container"] {
+            height: auto;
+            max-height: 51px;
+        }
+    }
 
     /* Loader. */
     .pm-loader-fullpage {
@@ -216,25 +242,6 @@
     .needsclick[aria-selected="false"] {
         color: var(--light) !important;
         background: var(--dark) !important;
-    }
-
-
-    /* Header. */
-    .headerNoAuth-container,
-    .headerSecured-container {
-        color: var(--light) !important;
-        background-color: var(--darker) !important;
-    }
-    .headerSecuredDesktop-logo {
-        background-color: var(--darker) !important;
-    }
-    .headerSecuredDesktop-logo:hover::before {
-        opacity: 0.8;
-    }
-    /* Active nav tab. */
-    .navigation > li.active,
-    .navigation > li:hover {
-        border-color: var(--accent);
     }
 
 

@@ -211,7 +211,6 @@
         .storageBar-progress { colors: 0, 0, $accent; }
     }
 
-
     // * Welcome section.
     #pm_view #pm_latest {
         header {
@@ -228,29 +227,29 @@
         }
     }
 
-
-    /* Command pallete. */
-    .commandPalette-container {
-        background: var(--dark) !important;
-    }
-    .autocomplete-container {
-        border: 1px solid var(--darker) !important;
-        background: var(--dark) !important;
-    }
-    .autocompleteEmails-autocomplete {
-        background: none !important;
-    }
-    /* Items. */
-    .needsclick {
-        border-top-color: var(--darker) !important;
-    }
-    .needsclick[aria-selected="true"] {
-        color: var(--lighter) !important;
-        background: var(--accent) !important;
-    }
-    .needsclick[aria-selected="false"] {
-        color: var(--light) !important;
-        background: var(--dark) !important;
+    // * Command pallete.
+    [class*="commandPalette-container"] {
+        radius: $radius;
+        colors: 0, 0, $dark;
+        box-shadow: 0 2px 8px -2px $shadow;
+        // Input section.
+        [class*="autocomplete-c"] {
+            radius: $radius;
+            colors: 0, 0, $dark;
+            box-shadow: 0 0 0 1px $darker;
+        }
+        // Commands.
+        [class*="Emails-"] {
+            max-height: 150px;
+            colors: 0, 0, $t;
+            // Items.
+            .needsclick {
+                transition: 0.15s ease;
+                colors: 0, $darker, 0;
+                &[aria-selected="false"] { colors: $lighter, 0, $dark; }
+                &[aria-selected="true"], &:hover { colors: $light, 0, $darker; }
+            }
+        }
     }
 
 

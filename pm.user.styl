@@ -32,6 +32,7 @@
 
 @-moz-document domain("mail.protonmail.com") {
     :root {
+        scrollbar-color: var(--darker) var(--dark);
         --note    : "Dark-ProtonMail v0.2.0";
         --dark    : dark;
         --darker  : darker;
@@ -89,17 +90,12 @@
     /* Scrollbars. */
     ::-webkit-scrollbar {
         width: 10px !important;
-    }
-    ::-webkit-scrollbar-thumb {
-        border: 1px solid var(--dark);
-        background-color: var(--darker) !important;
-    }
-    ::-webkit-scrollbar-track {
-        background-color: var(--dark) !important;
-    }
-    ::-webkit-scrollbar-thumb:hover,
-    ::-webkit-scrollbar-thumb:active {
-        background: var(--accent) !important;
+        &-scrollbar-thumb {
+            border: 1px solid $dark;
+            background-color: $darker;
+            &:hover, &:active { background-color: $accent; }
+        }
+        &-scrollbar-track { background-color: $dark; }
     }
 
 

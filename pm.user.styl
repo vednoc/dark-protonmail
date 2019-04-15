@@ -191,16 +191,24 @@
         }
     }
 
-    /* Loader. */
-    .pm-loader-fullpage {
-        background: var(--dark);
-    }
+    // * Global -> Loader.
+    .pm-loader-fullpage { colors: 0, 0, $dark; }
+
+    // * Global -> Loading.
     #pm_loading {
-        background: var(--darker);
+        colors: 0, 0, $dark;
+        box-shadow: 0 2px 8px 0 $shadow;
+        &::after {
+            border: 5px solid $darker;
+            border-top-color: $accent;
+        }
+        svg path { fill: $accent; }
     }
-    #pm_loading::after {
-        border: 5px solid var(--darker);
-        border-top-color: var(--accent);
+
+    // * Global -> Storage.
+    .storageBar {
+        colors: 0, 0, $darker;
+        .storageBar-progress { colors: 0, 0, $accent; }
     }
 
 

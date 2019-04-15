@@ -212,19 +212,20 @@
     }
 
 
-    /* Welcome page. */
-    .conversationPlaceholder header {
-        color: var(--lighter);
-        border-bottom-color: var(--darker);
-    }
-    .conversationPlaceholder * {
-        color: var(--light) !important;
-    }
-    .storageBar {
-        background-color: var(--darker) !important;
-    }
-    .storageBar .storageBar-progress {
-        background-color: var(--accent) !important;
+    // * Welcome section.
+    #pm_view #pm_latest {
+        header {
+            padding: 8px 24px;
+            colors: $light, $darker, 0;
+        }
+        section {
+            padding: 0.5rem;
+            margin: 8px;
+            radius: $radius;
+            span { colors: $lighter, 0, 0; }
+            strong { colors: $accent, 0, 0; }
+            img { filter: invert(1) hue-rotate(180deg) opacity(0.2); }
+        }
     }
 
 

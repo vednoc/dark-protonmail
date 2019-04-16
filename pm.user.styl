@@ -145,11 +145,6 @@
     .pm_panel.alt {
         background-color: transparent;
     }
-    a[class^="loginForm"] {
-        color: var(--light) !important;
-        border-color: var(--dark) !important;
-        background-color: var(--dark) !important;
-    }
 
     // * Login page.
     #login {
@@ -161,6 +156,12 @@
             box-shadow: 0 4px 16px -2px $shadow;
             .link { colors: $light, 0, 0; }
             input { colors: $lighter, $darker, 0; }
+        }
+        [class*="link-signup-button"] {
+            radius: $radius;
+            transition: 0.15s ease;
+            colors: $light, $darker, $darker;
+            &:hover { colors: 0, 0, $dark; }
         }
         #pm_footer { colors: $lighter, 0, 0; }
     }

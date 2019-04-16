@@ -292,36 +292,34 @@
         }
     }
 
-
-    /* Sidebar. */
+    // * Sidebar.
     #ptSidebar {
-        background-color: var(--dark) !important;
-    }
-    .sidebarApp-item .navigationItem-aside,
-    .sidebarApp-item::after {
-        background: none !important;
-    }
-    .sidebarApp-item.active {
-        background: var(--dark);
-    }
-    .navigationItem-item {
-        color: var(--light) !important;
-    }
-    .navigationItem-item:hover {
-        color: var(--lighter) !important;
-        background-color: var(--darker) !important;
-    }
-    /* Compose button. */
-    .sidebarApp-container .sidebar-btn-compose,
-    .pm_button.primary {
-        border-color: var(--accent);
-        background-color: var(--accent);
-    }
-    .sidebarApp-container .sidebar-btn-compose:hover,
-    .pm_button.primary:hover {
-        box-shadow: inset 0 0 0 32px var(--shadow);
-        border-color: var(--accent);
-        background-color: var(--accent);
+        border-right: 1px solid;
+        colors: 0, $darker, $dark;
+        height: calc(100% - 51px);
+        // box-shadow: 1px 0 0 0 $darker;
+        .sidebarApp-item {
+            // List items.
+            .navigationItem-item {
+                transition: 0.15s ease;
+                colors: $lighter, 0, 0;
+                .navigationItem-counter { color: inherit; }
+                .navigationItem-aside { background: none; }
+            }
+            &:hover:not(.active) > a { colors: $light, 0, $darker; }
+            &.active {
+                colors: 0, 0, $darker;
+                .fa, span { colors: $light, 0, 0; }
+            }
+        }
+        // Compose button.
+        .sidebar-btn-compose {
+            margin: 16px 0;
+            radius: $radius;
+            transition: 0.15s ease;
+            colors: $lighter, $darker, $t;
+            &:hover { colors: $white, $accent, $accent; }
+        }
     }
 
 

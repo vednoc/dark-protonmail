@@ -352,41 +352,21 @@
     }
 
 
-    /* Toolbar. */
+    // * Content -> Toolbar.
     .pm_toolbar {
-        box-shadow: none;
-        /* background-color: var(--shadow); */
-    }
-
-    /* Toolbar buttons. */
-    .pm_buttons {
-        border: 1px solid var(--darker);
-        color: var(--icon);
-    }
-    .pm_buttons > * {
-        border-left-color: var(--darker);
-    }
-    .pm_buttons.disabled {
-        box-shadow: none !important;
-        border-color: var(--darker) !important;
-        opacity: 0.75 !important;
-    }
-    /* Button backgrounds, borders, shadow. */
-    .pm_buttons a,
-    .pm_buttons .pm_buttons-child,
-    .pm_buttons .pm_buttons:not(:first-of-type) {
-        box-shadow: none !important;
-        border-color: var(--darker) !important;
-        background: none !important;
-    }
-    /* Toolbar buttons on event. */
-    .pm_buttons > a:focus,
-    .pm_buttons > a:hover,
-    .pm_buttons > a.active,
-    .pm_buttons > button:focus,
-    .pm_buttons > button:hover {
-        color: var(--lighter) !important;
-        background-color: var(--darker) !important;
+        box-shadow: 0 1px 0 0 $darker;
+        .pm_buttons {
+            colors: $lighter, 0, 0;
+            &.disabled { &, a { opacity: 0.75 !important; }}
+            &-child, a, button {
+                colors: 0, $darker, $dark;
+                &:hover { colors: $light, 0, 0; }
+            }
+            // TODO: Fix disabled buttons.
+            &.paginator > * {
+                colors: 0, $darker, $dark;
+            }
+        }
     }
 
 

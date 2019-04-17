@@ -30,7 +30,7 @@
 
 ==/UserStyle== */
 
-@-moz-document domain("mail.protonmail.com") {
+@-moz-document regexp("https?://(mail|beta).protonmail.com/.*") {
     :root {
         scrollbar-color: var(--darker) var(--dark);
         --note    : "Dark-ProtonMail v0.2.0";

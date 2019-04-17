@@ -273,6 +273,23 @@
         }
     }
 
+    // * Global -> Dropdowns.
+    .pm_dropdown {
+        radius: $radius !important;
+        colors: 0, $darker, $dark;
+        box-shadow: 0 2px 8px -1px $shadow;
+        .dropdown-folder-title { colors: 0, $darker, 0; }
+        // Text color.
+        a, span, button { colors: $lighter, $darker, 0; }
+        // Folders.
+        .scrollbox-container {
+            colors: 0, $darker, $t;
+            background-image: none;
+            /* Remove weird gradients. */
+            &::before, &::after { display: none; }
+        }
+    }
+
     // * Welcome section.
     #pm_view #pm_latest {
         header {
@@ -400,54 +417,6 @@
         border-color: var(--accent);
         background-color: var(--accent);
     }
-
-
-    /* Dropdown. */
-    .pm_dropdown {
-        border-color: var(--darker);
-        background-color: var(--dark);
-    }
-    /* Dropdown title. */
-    .dropdown-folder-title {
-        border-bottom-color: var(--darker);
-    }
-    /* Dropdown items. */
-    .pm_dropdown > button,
-    .pm_dropdown > ul > li {
-        border-bottom-color: var(--darker);
-    }
-    .pm_dropdown > button:hover,
-    .pm_dropdown > ul > li:hover {
-        color: var(--accent) !important;
-    }
-    /* Links. */
-    .pm_dropdown > a,
-    .pm_dropdown > button,
-    .pm_dropdown > ul > li {
-        border-color: var(--darker);
-    }
-    .pm_dropdown > a:hover,
-    .pm_dropdown > button:hover,
-    .pm_dropdown > ul > li:hover {
-        color: var(--accent) !important;
-    }
-    /* Text color. */
-    .navigationUser-dropdown,
-    .dropdown-label-scrollbox-label-text-ellipsis {
-        color: var(--light);
-    }
-    /* Folder container. */
-    .scrollbox-container {
-        border-color: var(--darker);
-        background-image: none;
-        background-color: transparent;
-    }
-    /* Remove weird gradients. */
-    .scrollbox-container::before,
-    .scrollbox-container::after {
-        display: none !important
-    }
-
 
 
     /* Message area. */

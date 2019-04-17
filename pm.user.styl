@@ -352,6 +352,30 @@
     }
 
 
+    // * Main -> Content.
+    #pm_main {
+        #conversation-list-rows {
+            // Add stuff.
+        }
+        // * Content -> Column view.
+        #conversation-list-columns {
+            colors: 0, $darker, 0;
+        }
+        // Conversations.
+        .conversation {
+            colors: 0, $darker, $t;
+            &.read { colors: 0, 0, $t; }
+            &:hover { colors: 0, 0, $darker; }
+            &.marked::before { colors: 0, 0, $darker; }
+            // Highlight unread messages.
+            &:not(.read) {
+                background-image: linear-gradient(
+                    to right, $darker -150%, $dark
+                ) !important;
+            }
+        }
+    }
+
     // * Content -> Toolbar.
     .pm_toolbar {
         box-shadow: 0 1px 0 0 $darker;
@@ -424,29 +448,6 @@
         display: none !important
     }
 
-
-    /* Conversations. */
-    .conversation,
-    body #conversation-list-rows .conversation {
-        transition: 100ms ease;
-        border-bottom-color: var(--darker) !important;
-        background-color: var(--darker);
-    }
-    /* Separator. */
-    body #conversation-list-columns {
-        border-color: var(--darker);
-    }
-    .conversation.marked::before {
-        background-color: var(--accent);
-    }
-    /* Read conversations. */
-    .conversation.read,
-    body #conversation-list-rows .conversation.read {
-        background-color: transparent;
-    }
-    .conversation:hover {
-        background: var(--darker) !important;
-    }
 
 
     /* Message area. */

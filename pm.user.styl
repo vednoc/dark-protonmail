@@ -245,6 +245,16 @@
         svg path { fill: $accent; }
     }
 
+    // * Global -> Atom lodaer.
+    #pm_slow, #pm_slow2 {
+        colors: $lighter, 0, $dark;
+        .atomLoader {
+            &-proton { colors: 0, 0, $light; }
+            &-item, &-item2, &-item3 { colors: 0, $lighter, 0; }
+            &-text { colors: $lighter, 0, 0; }
+        }
+    }
+
     // * Global -> Storage.
     .storageBar {
         colors: 0, 0, $darker;

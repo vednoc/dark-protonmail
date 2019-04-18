@@ -396,13 +396,17 @@
         .conversation {
             colors: 0, $darker, $t;
             &.read { colors: 0, 0, $t; }
-            &:hover { colors: 0, 0, $darker; }
             &.marked::before { colors: 0, 0, $darker; }
             // Highlight unread messages.
             &:not(.read) {
                 background-image: linear-gradient(
                     to right, $darker -150%, $dark
                 ) !important;
+            }
+            // Hover event.
+            &:hover {
+                background-image: none !important;
+                colors: 0, 0, $darker;
             }
         }
     }

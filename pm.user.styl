@@ -437,41 +437,55 @@
     }
 
 
-    /* Message area. */
-    #conversation-view .message {
-        border-color: var(--darker);
-    }
-    /* Header. */
-    #conversation-view header {
-        border-color: var(--darker);
-    }
-    /* Header details. */
-    #conversation-view .message .summary,
-    #conversation-view .message .details {
-        border-color: var(--darker);
-        background-color: transparent;
-    }
-    /* Date. */
-    #conversation-view .message .summary * {
-        background-color: transparent !important;
-    }
-    /* Sent/more tag. */
-    .pm_button.more, .pm_tag {
-        color: var(--light) !important;
-        background-color: var(--darker) !important;
-    }
-    /* Attachments. */
-    #attachmentArea {
-        border-color: var(--darker);
-        background-color: var(--darker);
-    }
-    .listAttachments-list .listAttachments-att {
-        border-radius: 6px;
-        color: var(--light);
-        background-color: var(--dark);
-    }
-    .listAttachments-list .listAttachments-att::after {
-        border-right-color: var(--shadow);
+    // * Content -> Message view.
+    #conversation-view {
+        // Message header.
+        header[id*="header" i] {
+            colors: 0, $darker, 0;
+            h1 {
+                padding: 8px 30px 8px 0;
+                .starButton {
+                    right: 1px; top: 10px;
+                    // TODO: Fix and polish animation.
+                    &:hover a::before { colors: $accent, 0, 0; }
+                }
+            }
+        }
+        // Message content.
+        .message {
+            radius: $radius;
+            colors: 0, $darker, 0;
+            .summary {
+                colors: 0, $darker, $t;
+                // Transparentize all elements.
+                .summary-right { &, * { colors: 0, 0, $t; }}
+            }
+            .details {
+                colors: 0, $darker, $t;
+                // TODO: Implement toolbar-alike element.
+                .action-row {}
+                // Alerts and stuff.
+                [class*="messageExtra-"] > [class*="-container"] {
+                    radius: $radius;
+                    colors: $lighter, 0, $darker;
+                    a { colors: $accent, 0, 0; }
+                    span { colors: $lighter, 0, 0; }
+                    button { colors: $lighter, $dark, $darker; }
+                }
+            }
+        }
+        // Attachments.
+        #attachmentArea {
+            colors: 0, $darker, $t;
+            .listAttachments-list {
+                padding-top: 10px;
+                .listAttachments-att {
+                    radius: $radius;
+                    colors: $lighter, $darker, $dark;
+                    &::after { colors: 0, $darker, 0; }
+                }
+            }
+        }
     }
 
 

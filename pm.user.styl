@@ -381,12 +381,16 @@
 
     // * Main -> Content.
     #pm_main {
-        #conversation-list-rows {
-            // Add stuff.
-        }
-        // * Content -> Column view.
-        #conversation-list-columns {
-            colors: 0, $darker, 0;
+        // Tweak height due to navbar being shorter.
+        #wrapper {
+            height: calc(100% - 47px);
+            #conversation-list-rows {
+                // Add stuff.
+            }
+            // * Content -> Column view.
+            #conversation-list-columns {
+                colors: 0, $darker, 0;
+            }
         }
         // Conversations.
         .conversation {

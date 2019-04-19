@@ -10,6 +10,7 @@
 @preprocessor stylus
 
 @var text b_radius "Custom border radius" 4px
+@var text ui_font "Custom UI font" "'custom_font', Arial, Helvetica Nue, Helvetica, sans-serif !important"
 
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
@@ -52,6 +53,7 @@
         --white   : white;
         --t       : transparent !important;
         --radius  : b_radius;
+        --ui-font : ui_font
     }
 
     // * Use stylus-lang variables with CSS variables.
@@ -230,6 +232,9 @@
             }
         }
     }
+
+    // ? Global -> Custom UI font.
+    body, .pm_opensans { font-family: var(--ui-font); }
 
     // * Global -> Loader.
     .pm-loader-fullpage { colors: 0, 0, $dark; }

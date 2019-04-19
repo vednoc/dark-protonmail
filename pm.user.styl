@@ -360,9 +360,11 @@
                 colors: 0, 0, $darker;
                 .fa, span { colors: $light, 0, 0; }
             }
+            // Remove the gradient.
+            &::after { background: none !important; }
         }
-        // Compose button.
-        .sidebar-btn-compose {
+        // Compose/back button.
+        [class*="-compose"], [class*="-back"] {
             margin: 16px 0;
             radius: $radius;
             transition: 0.15s ease;

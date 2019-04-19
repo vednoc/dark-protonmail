@@ -574,46 +574,47 @@
     }
 
 
-    /* Modal. */
-    .pm_modal .modal-dialog,
-    .pm_modal .modal-dialog .modal-content {
-        border-color: var(--darker) !important;
-        background: var(--dark) !important;
-    }
-    .pm_modal .modal-details {
-        border-color: var(--darker);
-    }
-    .pm_modal .modal-dialog .modal-footer {
-        background: none !important;
-    }
-    .pm_modal .modal-dialog .modal-content .modal-body {
-        box-shadow: inset 0 1px 0 var(--darker), inset 0 -1px 0 var(--darker);
-    }
-    /* Modal buttons. */
-    .pm_modal .modal-dialog .close {
-        top: 0;
-        right: 0;
-        color: var(--light);
-        background: none;
-    }
-    .pm_button {
-        color: var(--light);
-        border-color: var(--darker);
-        background-color: var(--darker);
-    }
-    .pm_button:hover,
-    .pm_button:focus {
-        color: var(--lighter);
-        background-color: var(--dark);
-    }
-    .labelModal-container .pm_button.primary {
-        color: var(--lighter);
-        border-color: var(--accent);
-        background-color: var(--accent);
-    }
-    .dropzone {
-        border-color: var(--shadow);
-        background: var(--darker);
+    // * Modals.
+    .pm_modal {
+        .modal-dialog {
+            radius: $radius;
+            border-width: 1px;
+            colors: 0, $darker, $dark;
+            .modal-content {
+                colors: 0, $darker, $t;
+                .modal-body { box-shadow: 0 1px 0 $darker, 0 -1px 0 $darker; }
+            }
+            .modal-footer { colors: 0, 0, $t; }
+        }
+        // Buttons.
+        .close {
+            top: 20px !important;
+            right: 20px !important;
+            transition: 0.15s ease;
+            colors: $light, 0, $t;
+            &:hover { colors: $accent, 0, 0; }
+        }
+        .pm_button {
+            radius: $radius;
+            transition: 0.15s ease;
+            colors: $lighter, $darker, $dark;
+            &:hover, &:focus { colors: $light, 0, $darker; }
+            &.primary {
+                colors: $accent, $accent, 0;
+                &:hover, &:focus { colors: $white, $accent, $accent; }
+            }
+        }
+        // TODO: Figure out where exactly this goes.
+        .modal-details { colors: 0, $darker, 0; }
+        .labelModal-container .pm_button.primary {
+            color: var(--lighter);
+            border-color: var(--accent);
+            background-color: var(--accent);
+        }
+        .dropzone {
+            border-color: var(--shadow);
+            background: var(--darker);
+        }
     }
 
 

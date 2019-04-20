@@ -397,12 +397,25 @@
                 // ? Settings -> Custom width for row layout.
                 @media screen and (min-width: 1280px) {
                     padding: 0 10px;
-                    margin: 0 auto;
-                    max-width: var(--width);
+                    // Wrapper.
                     .conversation-wrapper {
+                        z-index: 1;
+                        margin: 0 auto;
+                        max-width: var(--width);
                         margin-top: 1px;
                         box-shadow: 0 0 0 1px $darker;
                         colors: 0, 0, $dark;
+                    }
+                    // Background; apply only on high-res screens.
+                    &::before {
+                        size = 24px;
+                        content: "";
+                        opacity: 0.6;
+                        position: absolute;
+                        top: 0; right: 0; bottom: 0; left: 0;
+                        background-image: radial-gradient($darker 1px, $t 0);
+                        background-position: center center;
+                        background-size: size size;
                     }
                 }
             }
@@ -435,6 +448,8 @@
 
     // * Content -> Toolbar.
     .pm_toolbar {
+        margin-bottom: 10px;
+        colors: 0, 0, $dark;
         box-shadow: 0 1px 0 0 $darker;
         .pm_buttons {
             colors: $lighter, 0, 0;

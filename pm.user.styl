@@ -406,11 +406,11 @@
             #conversation-list-rows {
                 // ? Settings -> Custom width for row layout.
                 @media screen and (min-width: 1280px) {
-                    padding: 0 10px;
                     // Wrapper.
                     .conversation-wrapper {
                         z-index: 1;
                         margin: 0 auto;
+                        width: 100%;
                         max-width: var(--width);
                         margin-top: 1px;
                         box-shadow: 0 0 0 1px $darker;
@@ -458,7 +458,6 @@
 
     // * Content -> Toolbar.
     .pm_toolbar {
-        margin-bottom: 10px;
         colors: 0, 0, $dark;
         box-shadow: 0 1px 0 0 $darker;
         .pm_buttons {

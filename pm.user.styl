@@ -401,13 +401,14 @@
         }
         // Conversations.
         .conversation {
-            colors: 0, $darker, $t;
+            colors: 0, $darker, 0;
             &.read { colors: 0, 0, $t; }
             &.marked::before { colors: 0, 0, $darker; }
+            &.selected { box-shadow: 4px 0 0 0 inset $accent; }
             // Highlight unread messages.
             &:not(.read) {
                 background-image: linear-gradient(
-                    to right, $darker -150%, $dark
+                    to right, $darker -100%, $dark
                 ) !important;
             }
             // Hover event.

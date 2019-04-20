@@ -238,6 +238,14 @@
     // ? Global -> Custom UI font.
     body, .pm_opensans { font-family: var(--ui-font); }
 
+    // * Global -> Custom button colors.
+    .fa.fa {
+        &-star { colors: $accent, 0, 0; }
+        &-trash-o { &, &:hover { colors: $red, 0, 0; }}
+        &-ban { &, &:hover { colors: $orange, 0, 0; }}
+        &-archive { &, &:hover { colors: $cyan, 0, 0; }}
+    }
+
     // * Global -> Loader.
     .pm-loader-fullpage { colors: 0, 0, $dark; }
 
@@ -296,8 +304,8 @@
         colors: 0, $darker, $dark;
         box-shadow: 0 2px 8px -1px $shadow;
         .dropdown-folder-title { colors: 0, $darker, 0; }
-        // Text color.
-        a, span, button { colors: $lighter, $darker, 0; }
+        // Text color; exludes colored labels.
+        a, span:not([style]), button { colors: $lighter, $darker, 0; }
         // Folders.
         .scrollbox-container {
             colors: 0, $darker, $t;
@@ -456,7 +464,10 @@
             &.disabled { &, a { opacity: 0.75 !important; }}
             &-child, a, button {
                 colors: 0, $darker, $dark;
-                &:hover { colors: $light, 0, 0; }
+                // TODO: Temporary implementation.
+                &:hover:not(.fa-ban):not(.fa-archive):not(.fa-trash-o) {
+                    colors: $light, 0, 0;
+                }
             }
             // TODO: Fix disabled buttons.
             &.paginator > * {

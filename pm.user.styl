@@ -10,6 +10,7 @@
 @preprocessor stylus
 
 @var text b_radius "Custom border radius" 4px
+@var text max_width "Custom width for row layout" 1000px
 @var text ui_font "Custom UI font" "'custom_font', Arial, Helvetica Nue, Helvetica, sans-serif !important"
 
 @var color dark    "Dark color.   " #222222
@@ -52,6 +53,7 @@
         --green   : green;
         --white   : white;
         --t       : transparent !important;
+        --width   : max_width;
         --radius  : b_radius;
         --ui-font : ui_font
     }
@@ -392,7 +394,17 @@
         #wrapper {
             height: calc(100% - 47px);
             #conversation-list-rows {
-                // Add stuff.
+                // ? Settings -> Custom width for row layout.
+                @media screen and (min-width: 1280px) {
+                    padding: 0 10px;
+                    margin: 0 auto;
+                    max-width: var(--width);
+                    .conversation-wrapper {
+                        margin-top: 1px;
+                        box-shadow: 0 0 0 1px $darker;
+                        colors: 0, 0, $dark;
+                    }
+                }
             }
             // * Content -> Column view.
             #conversation-list-columns {
@@ -449,6 +461,11 @@
 
     // * Content -> Message view.
     #conversation-view {
+        // ? Settings -> Custom width for row layout.
+        #pm_thread > article {
+            margin: 10px auto;
+            max-width: var(--width);
+        }
         // Message header.
         header[id*="header" i] {
             colors: 0, $darker, 0;

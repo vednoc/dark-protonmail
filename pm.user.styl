@@ -242,8 +242,10 @@
     .fa.fa {
         &-star { colors: $accent, 0, 0; }
         &-trash-o { &, &:hover { colors: $red, 0, 0; }}
-        &-ban { &, &:hover { colors: $orange, 0, 0; }}
+        &-inbox { &, &:hover { colors: $blue, 0, 0; }}
         &-archive { &, &:hover { colors: $cyan, 0, 0; }}
+        &-ban { &, &:hover { colors: $orange, 0, 0; }}
+        &-times-circle-o { &, &:hover { colors: $red, 0, 0; }}
     }
 
     // * Global -> Loader.
@@ -465,7 +467,8 @@
             &-child, a, button {
                 colors: 0, $darker, $dark;
                 // TODO: Temporary implementation.
-                &:hover:not(.fa-ban):not(.fa-archive):not(.fa-trash-o) {
+                &:hover:not(.fa-ban):not(.fa-archive):not( .fa-trash-o):not(
+                    .fa-inbox):not(.fa-times-circle-o) {
                     colors: $light, 0, 0;
                 }
             }

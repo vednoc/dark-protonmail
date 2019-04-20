@@ -473,8 +473,22 @@
                 }
             }
             // TODO: Fix disabled buttons.
-            &.paginator > * {
-                colors: 0, $darker, $dark;
+        }
+        .action [class*="LayoutBtns-btn"] {
+            transition: 0.15s ease;
+            filter: grayscale(100%);
+            &:hover { filter: grayscale(100%) brightness(125%); }
+        }
+        .paginator {
+            a {
+                transition: 0.15s ease;
+                colors: $lighter, 0, 0;
+                box-shadow: none !important;
+                &:hover { colors: $light, 0, 0; }
+            }
+            &[class*="-previous"] > [class*="btn-previous"],
+            &[class*="-next"] > [class*="btn-next"] {
+                colors: $darker, 0, 0;
             }
         }
     }

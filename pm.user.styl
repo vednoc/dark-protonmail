@@ -691,18 +691,44 @@
     }
 
 
-    /* Settings dashboard. */
-    .settingsDashboard-plans,
-    .settingsDashboard-plans::after,
-    .settingsDashboard-plans::before {
-        background: none !important;
-    }
-    .settingsDashboard-overview-section-table-container .overviewSection-container .overviewSection-tbody-billing {
-        background: var(--darker);
-    }
-    /* Purple text. */
-    .overviewSection-container [class*="Btn"],
-    html.protonmail .text-purple {
-        color: var(--accent) !important;
+    // * Settings dashboard.
+    .settingsDashboard-container {
+        // Overview.
+        .overviewSection-container {
+            .overviewSection-tbody-billing { background: none !important; }
+        }
+        // Billing.
+        .settingsDashboard-plans {
+            colors: 0, 0, $t;
+            &, &::after, &::before { background: none !important; }
+            [class*="Column-container"] {
+                margin: 0 4px 0 0;
+                radius: $radius !important;
+                colors: $lighter, $darker, $dark;
+                box-shadow: none !important;
+                > :not(:last-child) { colors: 0, $darker, 0; }
+                header {
+                    radius: $radius $radius 0 0;
+                    colors: 0, $red, 0;
+                    box-shadow: none;
+                    > .isCurrent {
+                        top: -32px;
+                        colors: $light, $t, $t;
+                        box-shadow: none;
+                    }
+                }
+                // Remove gradients.
+                [class*="totalRows-label"] { background: none; }
+                // TODO: Move to global components.
+                .pm_select {
+                    colors: $lighter, $darker, $dark;
+                    box-shadow: 0 0 0 1px inset $darker;
+                    select:active, select:focus {
+                        colors: $light, 0, 0;
+                        box-shadow: 0 0 0 1px inset $accent;
+                    }
+                }
+            }
+        }
     }
 }

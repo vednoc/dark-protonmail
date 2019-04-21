@@ -379,6 +379,11 @@
             }
             // Remove the gradient.
             &::after { background: none !important; }
+            // Use filled style for starred messages icon.
+            .fa.fa-star-o {
+                colors: $accent, 0, 0;
+                &::before { content: "\f005"; }
+            }
         }
         // Compose/back button.
         [class*="-compose"], [class*="-back"] {

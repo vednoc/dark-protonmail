@@ -480,6 +480,7 @@
         box-shadow: 0 1px 0 0 $darker;
         .pm_buttons {
             colors: $lighter, 0, 0;
+            a, button { box-shadow: 0 2px 4px -1px $shadow; }
             &.disabled { &, a { opacity: 0.75 !important; }}
             &-child, a, button {
                 colors: 0, $darker, $dark;
@@ -496,6 +497,7 @@
             filter: grayscale(100%);
         }
         .paginator {
+            box-shadow: 0 2px 4px -1px $shadow;
             a {
                 transition: 0.15s ease;
                 colors: $lighter, 0, 0;
@@ -504,7 +506,8 @@
             }
             &[class*="-previous"] > [class*="btn-previous"],
             &[class*="-next"] > [class*="btn-next"] {
-                colors: $darker, 0, 0;
+                colors: $lighter, 0, 0;
+                opacity: 0.6;
             }
         }
     }

@@ -250,6 +250,8 @@
         &-send { &, &:hover { colors: $green, 0, 0; }}
         &-folder { &, &:hover { colors: $yellow, 0, 0; }}
         &-search { &, &:hover { colors: $lighter, 0, 0; }}
+        // ? Inherit label's custom color.
+        &[data-label-id] { color: inherit !important; }
     }
 
     // * Global -> Change layout buttons.

@@ -248,6 +248,12 @@
         &-times-circle-o { &, &:hover { colors: $red, 0, 0; }}
     }
 
+    // * Global -> Change layout buttons.
+    .appConfigBody-rows .chooseLayoutBtns-btn-rows,
+    body:not(.appConfigBody-rows) .chooseLayoutBtns-btn-column {
+        box-shadow: 0 2px 4px 0 inset $shadow !important;
+    }
+
     // * Global -> Loader.
     .pm-loader-fullpage { colors: 0, 0, $dark; }
 
@@ -481,7 +487,6 @@
         .action [class*="LayoutBtns-btn"] {
             transition: 0.15s ease;
             filter: grayscale(100%);
-            &:hover { filter: grayscale(100%) brightness(125%); }
         }
         .paginator {
             a {

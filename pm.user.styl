@@ -391,13 +391,20 @@
                 &::before { content: "\f005"; }
             }
         }
+        // Labels.
+        .sidebarApp-link { colors: $lighter, 0, 0; }
+        .menuLabel-item {
+            .menuLabel-link { colors: $lighter, 0, 0; }
+            &:hover .menuLabel-link { colors: $light, 0, 0; }
+        }
         // Compose/back button.
         [class*="-compose"], [class*="-back"] {
             margin: 16px 0;
             radius: $radius;
             transition: 0.15s ease;
             colors: $lighter, $darker, $t;
-            &:hover { colors: $white, $accent, $accent; }
+            box-shadow: 0 2px 4px -1px $shadow;
+            &:hover { colors: $light, 0, $darker; }
         }
     }
 

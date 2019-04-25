@@ -584,8 +584,12 @@
             }
             .details {
                 colors: 0, $darker, $t;
-                // TODO: Implement toolbar-alike element.
-                .action-row {}
+                // TODO: Possible refactor with global `pm_buttons` styles.
+                .action-row .pm_buttons > a {
+                    transition: 0.15s ease;
+                    colors: $lighter, $darker, $dark;
+                    &:hover { colors: $light, 0, $darker; }
+                }
                 // Alerts and stuff.
                 [class*="messageExtra-"] > [class*="-container"] {
                     radius: $radius;

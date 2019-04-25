@@ -180,11 +180,20 @@
         min-height: 50px;
         colors: $lighter, 0, $dark;
         box-shadow: 0 1px 0 0 $darker;
-        // Some styles for the logo.
-        [class*="-logo"] {
-            colors: 0, 0, $t;
-            &::before { transition: 0.15s ease; }
-            &:hover::before { opacity: 0.8; }
+        // Re-imagine the logo.
+        [class*="securedDesktop-logo" i] {
+            height: 51px;
+            padding: 0;
+            colors: $light, 0, $t;
+            &::before {
+                width: unset;
+                height: unset;
+                font-size: 1.4em;
+                content: "ProtonMail";
+                transition: 0.15s ease;
+                background: none;
+            }
+            &:hover { colors: $accent, 0, 0; }
         }
         // Navigation on the right.
         .navigation > {

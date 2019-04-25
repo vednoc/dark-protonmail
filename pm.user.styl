@@ -326,6 +326,17 @@
         }
     }
 
+    // * Global -> Radials.
+    .customRadio-input {
+        + .customRadio-mask {
+            background-image: none;
+            colors: 0, $darker, $dark;
+            ../:checked + .customRadio-mask {
+                box-shadow: 0 0 0 3px inset $darker, 0 0 0 10px inset $accent;
+            }
+        }
+    }
+
     // * Global -> Dropdowns.
     .pm_dropdown {
         radius: $radius !important;

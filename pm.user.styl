@@ -600,6 +600,19 @@
                 }
             }
         }
+        // Message area.
+        // TODO: Needs more work.
+        .message-frame {
+            img {
+                opacity: 0.3;
+                transition: 0.15s ease;
+                border-radius: $radius;
+                &:hover {
+                    opacity: 1;
+                    transition-delay: 0.5s;
+                }
+            }
+        }
         // Attachments.
         #attachmentArea {
             colors: 0, $darker, $t;

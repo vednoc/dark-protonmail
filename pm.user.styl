@@ -575,10 +575,12 @@
         .message {
             radius: $radius;
             colors: 0, $darker, 0;
-            .summary {
+            .summary:not(._xd) {
                 colors: 0, $darker, $t;
                 // Transparentize all elements.
-                .summary-right { &, * { colors: 0, 0, $t; }}
+                .summary-right:not(._is):not(._xd) { &, * { colors: 0, 0, $t; }}
+                // Rounded corners for message body.
+                + div .frame { radius: 0 0 $radius $radius; }
             }
             .details {
                 colors: 0, $darker, $t;

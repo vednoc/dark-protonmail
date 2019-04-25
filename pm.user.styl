@@ -627,25 +627,37 @@
     }
 
 
-    /* Compose. */
+    // * Content -> Composer.
     #pm_composer .composer {
-        color: var(--lighter);
-        background: var(--darker);
-    }
-    /* Header. */
-    .composerHeader-container,
-    .composerOptions-container {
-        color: var(--lighter);
-        background: var(--darker);
-    }
-    /* Inputs. */
-    .composerInputMeta-overlay,
-    #pm_composer .composer .row,
-    #pm_composer .composer .row select,
-    #pm_composer .composer .row input {
-        color: var(--lighter);
-        border-color: var(--dark);
-        background: var(--darker);
+        radius: $radius;
+        border: 1px solid;
+        colors: $lighter, $darker, $dark;
+        box-shadow: 0 2px 4px -1px $shadow;
+        // Header.
+        // TODO: Optimize for different components.
+        &Header-container, &Options-container {
+            colors: $light, 0, $darker;
+        }
+        // Inputs.
+        .row {
+            &, select, input { colors: $lighter, $darker, $t; }
+            .composerInputMeta-overlay { colors: $light, 0, $darker; }
+            .svg-ellipsis-clipper { display: none; }
+        }
+        footer {
+            colors: $light, $darker, $t;
+        }
+        // TODO: Possible refactor with global `pm_button` styles.
+        .pm_button {
+            radius: calc(var(--radius) / 2);
+            transition: 0.15s ease;
+            colors: $lighter, $darker, $dark;
+            &:hover { colors: $light, 0, $darker; }
+            &.primary {
+                colors: $white, $accent, $accent;
+                &:hover { colors: $accent, 0, $darker; }
+            }
+        }
     }
 
     /* Message area. */

@@ -520,7 +520,6 @@
         .pm_buttons {
             colors: $lighter, 0, 0;
             a, button { box-shadow: 0 2px 4px -1px $shadow; }
-            &.disabled { &, a { opacity: 0.75 !important; }}
             &-child, a, button {
                 colors: 0, $darker, $dark;
                 // TODO: Temporary implementation.
@@ -529,7 +528,13 @@
                     colors: $light, 0, 0;
                 }
             }
-            // TODO: Fix disabled buttons.
+            &.disabled {
+                &, a[class] {
+                    opacity: 0.75 !important;
+                    colors: $lighter, $darker, $darker;
+                    box-shadow: none !important;
+                }
+            }
         }
         .action [class*="LayoutBtns-btn"] {
             transition: 0.15s ease;

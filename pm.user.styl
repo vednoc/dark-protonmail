@@ -553,10 +553,14 @@
 
     // * Content -> Message view.
     #conversation-view {
-        // ? Settings -> Custom width for row layout.
-        #pm_thread > article {
-            margin: 10px auto;
-            max-width: var(--width);
+        // Remove outline from message header.
+        #pm_thread {
+            outline: none !important;
+            // ? Settings -> Custom width for row layout.
+            > article {
+                margin: 10px auto;
+                max-width: var(--width);
+            }
         }
         // Message header.
         header[id*="header" i] {

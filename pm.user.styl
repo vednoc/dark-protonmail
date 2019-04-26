@@ -615,13 +615,16 @@
         // Message area.
         // TODO: Needs more work.
         .message-frame {
-            img {
-                opacity: 0.3;
-                transition: 0.15s ease;
-                border-radius: $radius;
-                &:hover {
-                    opacity: 1;
-                    transition-delay: 0.5s;
+            a {
+                display: flex;
+                img {
+                    opacity: 0.3;
+                    transition: 0.15s ease;
+                    border-radius: $radius;
+                    ../:hover img {
+                        opacity: 1 !important;
+                        transition-delay: 0.5s;
+                    }
                 }
             }
         }

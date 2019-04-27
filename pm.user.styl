@@ -218,6 +218,17 @@
             height: auto;
             max-height: 51px;
         }
+        // New update notifier!
+        [class*="-newVersion-info"] {
+            left calc(50% + 2px);
+            top: 8px !important;
+            colors: 0 0 $accent;
+            // Alert in the dropdown.
+            + .pm_dropdown [class*="newVersion-container"] {
+                radius: $radius;
+                colors: $light $accent $t;
+            }
+        }
     }
 
     // * Search bar.

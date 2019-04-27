@@ -272,6 +272,15 @@
     // ? Global -> Custom UI font.
     body, .pm_opensans { font-family: var(--ui-font); }
 
+    // * Global -> Buttons.
+    .pm_button {
+        transition: 0.15s ease;
+        &.primary {
+            colors: $accent $accent $darker;
+            &:hover { colors: $white 0 $accent; }
+        }
+    }
+
     // * Global -> Custom button colors.
     .fa.fa {
         color: $lighter;
@@ -566,14 +575,6 @@
                 opacity: 0.6;
             }
         }
-    }
-
-
-    /* Button. */
-    .pm_button.primary {
-        color: var(--lighter);
-        border-color: var(--accent);
-        background-color: var(--accent);
     }
 
 

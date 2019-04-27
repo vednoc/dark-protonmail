@@ -431,7 +431,8 @@
             &:hover:not(.active) > a { colors: $light, 0, $darker; }
             &.active {
                 colors: 0, 0, $darker;
-                .fa, span { colors: $light, 0, 0; }
+                // Fixes icon colors.
+                .fa, span { color: inherit; }
             }
             // Remove the gradient.
             &::after { background: none !important; }

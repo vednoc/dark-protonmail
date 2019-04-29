@@ -692,6 +692,12 @@
                     }
                 }
             }
+            blockquote { colors: $lighter $darker 0; }
+            pre {
+                radius: $radius;
+                colors: $light $darker $dark;
+                box-shadow: 0 2px 4px 0 $shadow;
+            }
             // ! Possibly reset custom emails.
             .bodyDecrypted {
                 p, span, i { colors: $lighter 0 0; }

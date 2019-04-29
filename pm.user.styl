@@ -9,6 +9,8 @@
 @license      MIT
 @preprocessor stylus
 
+@var checkbox layout_buttons "Custom layout buttons" 1
+
 @var text b_radius "Custom border radius" 4px
 @var text max_width "Custom width for row layout" 1000px
 @var text ui_font "Custom UI font" "'custom_font', Arial, Helvetica Nue, Helvetica, sans-serif !important"
@@ -111,8 +113,18 @@
         #tour-layout [class*="Btns-btn-"]:hover,
         &[class*="Body-rows"] #tour-layout [class*="Btns-btn-rows"],
         &:not([class*="Body-rows"]) #tour-layout [class*="Btns-btn-column"] {
-            colors: 0, 0, $darker;
+            colors: $accent, 0, $darker;
             box-shadow: 0 2px 4px 0 inset $shadow !important;
+        }
+        if ( layout_buttons == 1 ) {
+            #tour-layout [class*="LayoutBtns-btn-column"] {
+                img { display: none !important; }
+                &::before { content: "Col"; }
+            }
+            #tour-layout [class*="LayoutBtns-btn-row"] {
+                img { display: none !important; }
+                &::before { content: "Row"; }
+            }
         }
     }
 

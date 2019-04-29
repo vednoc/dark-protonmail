@@ -325,9 +325,15 @@
     // * Global -> Labels.
     .pm_labels {
         [class*="-label"] {
+            transition: 0.15s ease;
             radius: calc(var(--radius) / 2);
             border: 1px solid !important;
-            [class*="-name"] { padding: 0.2rem; }
+            &:hover { opacity: 0.6; }
+            // Fixes label misalignment in messages.
+            [class*="-name"] {
+                overflow: unset;
+                padding: 0.2rem;
+            }
         }
     }
 

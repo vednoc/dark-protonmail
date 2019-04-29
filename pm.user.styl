@@ -680,6 +680,13 @@
                     }
                 }
             }
+            // ! Possibly reset custom emails.
+            .bodyDecrypted {
+                p, span, i { colors: $lighter 0 0; }
+                h1, h2, h3, h4, h5, h6 { colors: $light 0 0; }
+                table { tr, th, td { colors: $lighter $darker $dark; }}
+                img { filter: invert(1) hue-rotate(180deg) !important; }
+            }
         }
         // Attachments.
         #attachmentArea {

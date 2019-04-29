@@ -486,7 +486,7 @@
 
 
     /* Content area. */
-    #conversation-view .frame, #pm_main {
+    #pm_main {
         color: var(--light);
         background-color: var(--dark);
     }
@@ -626,7 +626,10 @@
                 // Transparentize all elements.
                 .summary-right:not(._is):not(._xd) { &, * { colors: 0, 0, $t; }}
                 // Rounded corners for message body.
-                + div .frame { radius: 0 0 $radius $radius; }
+                + div .frame {
+                    radius: 0 0 $radius $radius;
+                    colors: 0 0 $t;
+                }
             }
             .details {
                 colors: 0, $darker, $t;

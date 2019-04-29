@@ -506,38 +506,36 @@
 
     // * Main -> Content.
     #pm_main {
-        // Tweak height due to navbar being shorter.
         #wrapper {
+            // Tweak height due to navbar being shorter.
             height: calc(100% - 47px);
-            #conversation-list-rows {
-                // ? Settings -> Custom width for row layout.
-                @media screen and (min-width: 1280px) {
-                    // Wrapper.
-                    .conversation-wrapper {
-                        z-index: 1;
-                        margin: 0 auto;
-                        width: 100%;
-                        max-width: var(--width);
-                        margin-top: 1px;
-                        box-shadow: 0 0 0 1px $darker;
-                        colors: 0, 0, $dark;
-                    }
-                    // Background; apply only on high-res screens.
-                    &::before {
-                        size = 24px;
-                        content: "";
-                        opacity: 0.6;
-                        position: absolute;
-                        top: 0; right: 0; bottom: 0; left: 0;
-                        background-image: radial-gradient($darker 1px, $t 0);
-                        background-position: center center;
-                        background-size: size size;
-                    }
+            // ? Settings -> Custom width for row layout.
+            @media screen and (min-width: 1280px) {
+                .conversation-wrapper {
+                    z-index: 1;
+                    margin: 1px auto 0;
+                    width: 100%;
+                    max-width: var(--width);
+                    colors: 0, 0, $dark;
+                    box-shadow: 0 0 0 1px $darker;
+                }
+                // Background; apply only on high-res screens.
+                &::before {
+                    size = 24px;
+                    content: "";
+                    opacity: 0.6;
+                    position: absolute;
+                    top: 0; right: 0; bottom: 0; left: 0;
+                    background-image: radial-gradient($darker 2px, $t 0);
+                    background-position: center center;
+                    background-size: size size;
                 }
             }
+            // * Content -> Row view.
+            #conversation-list-rows {}
             // * Content -> Column view.
             #conversation-list-columns {
-                colors: 0, $darker, 0;
+                colors: 0, $darker, $dark;
             }
         }
         // Conversations.

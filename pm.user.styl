@@ -619,8 +619,10 @@
         }
         // Message header.
         header[id*="header" i] {
-            colors: 0, $darker, 0;
+            z-index: 1;
+            colors: 0, $darker, $dark;
             h1 {
+                letter-spacing: 0;
                 padding: 8px 30px 8px 0;
                 .starButton {
                     right: 1px; top: 10px;
@@ -632,7 +634,9 @@
         // Message content.
         .message {
             radius: $radius;
-            colors: 0, $darker, 0;
+            colors: 0, $darker, $dark;
+            &.open { box-shadow: 0 2px 4px 0 $shadow; }
+            &.unread { colors: 0 0 $darker; }
             .summary:not(._xd) {
                 colors: 0, $darker, $t;
                 // Transparentize all elements.

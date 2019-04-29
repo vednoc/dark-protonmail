@@ -106,6 +106,14 @@
     body {
         color: var(--lighter);
         background: var(--dark) !important;
+
+        // * Global -> Change layout buttons.
+        #tour-layout [class*="Btns-btn-"]:hover,
+        &[class*="Body-rows"] #tour-layout [class*="Btns-btn-rows"],
+        &:not([class*="Body-rows"]) #tour-layout [class*="Btns-btn-column"] {
+            colors: 0, 0, $darker;
+            box-shadow: 0 2px 4px 0 inset $shadow !important;
+        }
     }
 
     h1, h2, h3, h4, h5, h6, strong {
@@ -301,11 +309,6 @@
         &[data-label-id] { color: inherit !important; }
     }
 
-    // * Global -> Change layout buttons.
-    .appConfigBody-rows .chooseLayoutBtns-btn-rows,
-    body:not(.appConfigBody-rows) .chooseLayoutBtns-btn-column {
-        box-shadow: 0 2px 4px 0 inset $shadow !important;
-    }
 
     // * Global -> Labels.
     .pm_labels {

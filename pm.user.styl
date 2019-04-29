@@ -300,7 +300,7 @@
     .pm_button {
         transition: 0.15s ease;
         &.primary {
-            colors: $accent $accent $darker;
+            colors: $accent $accent $dark;
             &:hover { colors: $white 0 $accent; }
         }
     }
@@ -570,10 +570,11 @@
             &-child, a, button {
                 colors: 0, $darker, $dark;
                 // TODO: Temporary implementation.
-                &:hover:not(.fa-ban):not(.fa-archive):not( .fa-trash-o):not(
+                &:hover:not(.fa-ban):not(.fa-archive):not(.fa-trash-o):not(
                     .fa-inbox):not(.fa-times-circle-o) {
                     colors: $light, 0, 0;
                 }
+                &.active, &:hover { colors: $light 0 $darker; }
             }
             &.disabled {
                 &, a[class] {
@@ -651,7 +652,7 @@
                 .action-row .pm_buttons > a {
                     transition: 0.15s ease;
                     colors: $lighter, $darker, $dark;
-                    &:hover { colors: $light, 0, $darker; }
+                    &.active, &:hover { colors: $light, 0, $darker; }
                 }
                 // Alerts and stuff.
                 [class*="messageExtra-"] > [class*="-container"] {

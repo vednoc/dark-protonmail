@@ -755,60 +755,48 @@
         }
     }
 
-    /* Message area. */
-    .composer-container,
+    // * Content -> Composer additions.
     .squire-container {
-        color: var(--light);
-        background: var(--dark);
+        colors: 0 0 $dark;
+        input, select, textarea { colors: $light 0 $dark; }
+        // Popouts.
+        .squire-popover {
+            colors: 0 $darker $dark;
+            &, &-second { radius: $radius !important; }
+        }
+        // Toolbar.
+        [class*="squireToolbar"] {
+            colors: 0 $darker $t;
+            // Dropdown list.
+            [class*="-select-list"] {
+                colors: 0 0 $dark;
+                box-shadow: 0 2px 4px 0 $shadow;
+                > li {
+                    padding: 0 1.5rem;
+                    colors: $lighter 0 0;
+                    &:hover { colors: $light 0 $darker; }
+                }
+            }
+            // On event.
+            [class*="squireToolbar-action-"] {
+                colors: 0 $darker $dark;
+                &:hover { colors: 0 0 $darker; }
+                [class*="triangle-with-shadow"]::after {
+                    border-width: 5px;
+                    colors: 0 $darker $dark;
+                }
+            }
+        }
+        // Encrypt.
+        header[class*="Encrypt-"] { colors: 0 0 $t; }
     }
-
-    /* Footer. */
-    #pm_composer .composer footer,
-    .squireEditor-loaded footer {
-        border-top-color: var(--darker);
-        background: var(--darker);
-    }
-    /* Buttons. */
-    #pm_composer .composer footer .pm_button,
-    .squireEditor-loaded footer .pm_button {
-        color: var(--light);
-        border-color: var(--darker);
-        background: var(--dark);
-    }
-    #pm_composer .composer footer .pm_button.primary {
-        background: var(--accent);
-    }
-
-
-    /* Squire popover. */
-    .squire-popover {
-        border-color: var(--darker);
-        background: var(--dark);
-    }
-    /* Toolbar. */
-    [class*="squireToolbar"] {
-        border-color: var(--dark);
-        background: var(--dark);
-    }
-    /* Icons on event. */
-    [class*="squireToolbar-action-options"],
-    [class*="squireToolbar-action-color"],
-    [class*="squireToolbar-action-"]:hover {
-        border-color: var(--dark) !important;
-        background-color: var(--dark) !important;
-    }
-
-
-    /* Expiration settings. */
-    .alert,
-    .alert.alert-info {
-        color: var(--lighter);
-        background: var(--dark);
-    }
-    #pm_composer .composer select {
-        border-radius: 0;
-        color: var(--lighter);
-        background: var(--darker);
+    // Expiration settings.
+    .alert, .alert.alert-info {
+        colors: $light 0 $t;
+        input[type], .pm_select {
+            border-radius: calc(var(--radius) / 2) !important;
+            colors: $light $darker $dark;
+        }
     }
 
 

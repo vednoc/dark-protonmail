@@ -227,10 +227,11 @@
         // Navigation on the right.
         .navigation > {
             li {
+                border: none;
                 min-height: 51px;
-                colors: $lighter, 0, 0;
-                &:hover { colors: $light, $accent, 0; }
-                &.active { colors: $accent, $accent, $darker; }
+                transition: 0.15s ease;
+                colors: $lighter 0 0;
+                &:hover, a.active { colors: $light 0 $darker; }
             }
         }
         // Sub-nav height reset.

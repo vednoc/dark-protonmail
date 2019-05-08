@@ -855,41 +855,19 @@
     }
 
 
-    /* Contacts. */
-    .contactList-table {
-        box-shadow: none;
-        background: var(--dark);
-    }
-    /* Header. */
-    .pm_table table th {
-        border-bottom-color: var(--shadow);
-        background: var(--dark);
-    }
-    /* On event. */
-    .contactList-item-activeContact td,
-    .contactList-container .pm_table thead th[data-action]:hover {
-        background: var(--shadow);
-    }
-    /* Text color. */
-    .pm_table table td {
-        color: var(--light);
-    }
-
-    /* Locked fields. */
-    .contactDetails-fields-locked {
-        background: rgba(0,0,0,0.4);
-    }
-    /* Modal. */
-    .contactDetails-fields-locked-notice {
-        border-color: var(--darker);
-        background: var(--dark);
-    }
-    /* Inputs. */
-    .contactItem-inputs textarea,
-    .contactItem-inputs input:not([type=checkbox]) {
-        color: var(--light) !important;
-        border-color: var(--darker);
-        background: var(--dark);
+    // * Contacts.
+    .contacts-container {
+        [class*="toolbar" i] {
+            colors: 0 $darker 0
+            button {
+                colors: $lighter $darker 0
+                &:hover { colors: $light 0 $darker }
+                &.primary { colors: $accent $accent 0 }
+            }
+        }
+        .contactList-container {
+            colors: 0 $darker $t;
+        }
     }
 
 

@@ -111,6 +111,11 @@
         color: var(--lighter);
         background: var(--dark) !important;
 
+        // * Feature -> Custom UI font.
+        &, .pm_opensans, [class*="header"] {
+            font-family: var(--ui-font);
+        }
+
         // * Global -> Change layout buttons.
         #tour-layout [class*="Btns-btn-"]:hover,
         &[class*="Body-rows"] #tour-layout [class*="Btns-btn-rows"],
@@ -118,6 +123,7 @@
             colors: $accent, 0, $darker;
             box-shadow: 0 2px 4px 0 inset $shadow !important;
         }
+
         // * Feature -> Custom layout buttons.
         if ( layout_buttons == 1 ) {
             #tour-layout [class*="LayoutBtns-btn-column"] {
@@ -301,9 +307,6 @@
             }
         }
     }
-
-    // ? Global -> Custom UI font.
-    body, .pm_opensans, [class*="header"] { font-family: var(--ui-font); }
 
     // * Global -> Buttons.
     .pm_button {

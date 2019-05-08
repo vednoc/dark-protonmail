@@ -409,9 +409,14 @@
     }
 
     // * Global -> Storage.
-    .storageBar {
-        colors: 0, 0, $darker;
-        .storageBar-progress { colors: 0, 0, $accent; }
+    .storageProgress-container {
+        .link span { colors: $accent 0 0 }
+        .storageBar {
+            colors: 0 0 $darker;
+            &-progress { colors: 0 0 $accent; }
+        }
+        // Hide version number.
+        + .version { display: none; }
     }
 
     // * Global -> Checkboxes.

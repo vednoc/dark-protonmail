@@ -11,6 +11,7 @@
 @preprocessor stylus
 
 @var checkbox layout_buttons "Custom layout buttons" 1
+@var checkbox remove_outline "Remove outline from all elements" 0
 
 @var text b_radius "Custom border radius" 4px
 @var text max_width "Custom width for row layout" 1000px
@@ -117,6 +118,7 @@
             colors: $accent, 0, $darker;
             box-shadow: 0 2px 4px 0 inset $shadow !important;
         }
+        // * Feature -> Custom layout buttons.
         if ( layout_buttons == 1 ) {
             #tour-layout [class*="LayoutBtns-btn-column"] {
                 img { display: none !important; }
@@ -126,6 +128,11 @@
                 img { display: none !important; }
                 &::before { content: "Row"; }
             }
+        }
+
+        // * Feature -> Remove `outline` from all elements.
+        if ( remove_outline == 1 ) {
+            * { outline: none !important; }
         }
     }
 

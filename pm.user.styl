@@ -356,6 +356,34 @@
         }
     }
 
+    // Global -> Tables.
+    .pm_table > table {
+        colors: 0 0 $t;
+        box-shadow: none;
+        thead th {
+            colors: $light $darker $t;
+            // Sort buttons.
+            .fa.fa-sort { &-desc, &-asc { colors: $lighter 0 0 }}
+        }
+        tbody tr {
+            // Active row.
+            &[class*="-activeContact"] td {
+                colors: $light $darker $darker;
+                span { &, * { color: inherit }}
+            }
+            // Indicator.
+            &[class*="-activeCursor"] td:first-child {
+                box-shadow: 4px 0 0 0 inset $accent;
+            }
+            // Table cells.
+            td {
+                border-left: none;
+                colors: $lighter 0 0;
+                ../:hover td { colors: $light $darker $darker }
+            }
+        }
+    }
+
     // * Global -> Loader.
     .pm-loader-fullpage { colors: 0, 0, $dark; }
 

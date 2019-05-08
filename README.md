@@ -24,5 +24,5 @@ would like to tip me then you can buy me a cup of coffee over at [ko-fi][ko-fi].
 [stylus]: https://github.com/openstyles/stylus
 [usercss]: https://github.com/openstyles/stylus/wiki/Usercss
 [badge]: https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=for-the-badge
-[style]: https://gitlab.com/vednoc/dark-discord/raw/master/discord.user.styl
+[style]: https://gitlab.com/vednoc/dark-protonmail/raw/master/pm.user.styl
 [ko-fi]: https://ko-fi.com/vednoc

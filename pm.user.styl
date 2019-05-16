@@ -192,7 +192,10 @@
             radius: $radius;
             colors: 0, $darker, $dark;
             box-shadow: 0 4px 16px -2px $shadow;
-            .link { colors: $light, 0, 0; }
+            .link {
+                text-decoration: underline;
+                colors: $lighter 0 0;
+            }
             img[class="logo"] { display: none; }
             input {
                 colors: $lighter, $darker, 0;
@@ -213,9 +216,12 @@
             radius: $radius;
             transition: 0.15s ease;
             colors: $light, $darker, $darker;
-            &:hover { colors: 0, 0, $dark; }
+            &:hover { colors: $accent 0 $dark }
         }
-        #pm_footer { colors: $lighter, 0, 0; }
+        #pm_footer {
+            colors: $lighter, 0, 0;
+            a { colors: $accent 0 0 }
+        }
     }
 
     // * Navbar.

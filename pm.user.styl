@@ -525,11 +525,11 @@
             // List items.
             .navigationItem-item {
                 transition: 0.15s ease;
-                colors: $lighter, 0, 0;
+                colors: $light 0 0;
                 .navigationItem-counter { color: inherit; }
                 .navigationItem-aside { background: none; }
             }
-            &:hover:not(.active) > a { colors: $light, 0, $darker; }
+            &:hover:not(.active) > a { colors: $lighter 0 $darker }
             &.active {
                 colors: 0, 0, $darker;
                 // Fixes icon colors.
@@ -544,19 +544,23 @@
             }
         }
         // Labels.
-        .sidebarApp-link { colors: $lighter, 0, 0; }
+        .sidebarApp-link { colors: $light 0 0 }
         .menuLabel-item {
-            .menuLabel-link { colors: $lighter, 0, 0; }
-            &:hover .menuLabel-link { colors: $light, 0, 0; }
+            em { colors: $lighter 0 0 }
+            .menuLabel-link {
+                transition: 0.15s ease;
+                colors: $light 0 0;
+                ../:hover .menuLabel-link { colors: $lighter 0 0 }
+            }
         }
         // Compose/back button.
         [class*="-compose"], [class*="-back"] {
             margin: 16px 0;
             radius: $radius;
             transition: 0.15s ease;
-            colors: $lighter, $darker, $t;
+            colors: $light $darker $t;
             box-shadow: 0 2px 4px -1px $shadow;
-            &:hover { colors: $light, 0, $darker; }
+            &:hover { colors: $accent 0 $darker }
         }
     }
 

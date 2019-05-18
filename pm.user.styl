@@ -562,6 +562,11 @@
             box-shadow: 0 2px 4px -1px $shadow;
             &:hover { colors: $accent 0 $darker }
         }
+        // Scrollbar.
+        [class*="_draggerContainer"] {
+            [class*="Rail"] { colors: 0 0 $darker }
+            [class*="_bar"] { colors: 0 0 $accent }
+        }
     }
 
 

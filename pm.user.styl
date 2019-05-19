@@ -198,8 +198,13 @@
             }
             img[class="logo"] { display: none; }
             input {
+                radius: $radius;
                 colors: $lighter, $darker, 0;
                 box-shadow: 0 2px 4px 0 inset $shadow;
+            }
+            button {
+                transition: 0.15s ease;
+                radius: $radius;
             }
             // New user notice.
             [class*="-new-title"] {

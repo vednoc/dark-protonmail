@@ -662,6 +662,7 @@
         .action [class*="LayoutBtns-btn"] {
             transition: 0.15s ease;
             img { filter: grayscale(100%); }
+            &:focus { colors: $light 0 $dark }
         }
         .paginator {
             box-shadow: 0 2px 4px -1px $shadow;
@@ -671,10 +672,10 @@
                 box-shadow: none !important;
                 &:hover { colors: $light, 0, 0; }
             }
-            &[class*="-previous"] > [class*="btn-previous"],
-            &[class*="-next"] > [class*="btn-next"] {
+            &[class*="-previous"] > [class*="btn-previous"] i,
+            &[class*="-next"] > [class*="btn-next"] i {
                 colors: $lighter, 0, 0;
-                opacity: 0.6;
+                opacity: 0.3;
             }
         }
     }
@@ -826,6 +827,10 @@
             &, &-second { radius: $radius !important; }
         }
         // Toolbar.
+        .squire-toolbar {
+            radius: $radius $radius 0 0;
+            button { radius: $radius }
+        }
         [class*="squireToolbar"] {
             colors: 0 $darker $t;
             // Dropdown list.

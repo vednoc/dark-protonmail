@@ -367,7 +367,7 @@
         }
     }
 
-    // Global -> Tables.
+    // * Global -> Tables.
     .pm_table > table {
         colors: 0 0 $t;
         box-shadow: none;
@@ -469,7 +469,7 @@
         box-shadow: 0 2px 8px -1px $shadow;
         .dropdown-folder-title { colors: 0, $darker, 0; }
         // Text color; exludes colored labels.
-        a, span:not([style]), button { colors: $lighter, $darker, 0; }
+        a, span:not([style]), button { colors: $lighter $darker 0 }
         // Folders.
         .scrollbox-container {
             colors: 0, $darker, $t;
@@ -533,8 +533,8 @@
                 colors: $light 0 0;
                 .navigationItem-counter { color: inherit; }
                 .navigationItem-aside { background: none; }
+                ../:hover:not(.active) > a { colors: $lighter 0 $darker }
             }
-            &:hover:not(.active) > a { colors: $lighter 0 $darker }
             &.active {
                 colors: 0, 0, $darker;
                 // Fixes icon colors.
@@ -741,6 +741,7 @@
                     button { colors: $lighter, $dark, $darker; }
                 }
             }
+            &:last-child { margin-bottom: 10vh !important; }
         }
         // Message area.
         // TODO: Needs more work.

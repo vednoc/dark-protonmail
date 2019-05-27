@@ -589,13 +589,10 @@
             height: calc(100% - 47px);
             // ? Settings -> Custom width for row layout.
             @media screen and (min-width: 1280px) {
-                .conversation-wrapper {
-                    z-index: 1;
-                    margin: 1px auto 0;
-                    width: 100%;
+                .conversation-wrapper > .conversation {
+                    margin: 0 auto;
                     max-width: var(--width);
-                    colors: 0, 0, $dark;
-                    box-shadow: 0 0 0 1px $darker;
+                    box-shadow: 1px 0 0 $darker, -1px 0 0 $darker;
                 }
                 // Background; apply only on high-res screens.
                 &::before {

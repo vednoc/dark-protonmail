@@ -137,6 +137,21 @@
             }
         }
 
+        // * Global -> Custom background.
+        &[class*="Body-rows"] #conversation-view, #conversation-list-rows {
+            position: relative;
+            &::before {
+                size = 24px;
+                content: "";
+                opacity: 0.6;
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+                background-image: radial-gradient($darker 2px, $t 0);
+                background-position: center center;
+                background-size: size size;
+            }
+        }
+
         // * Feature -> Remove `outline` from all elements.
         if ( remove_outline == 1 ) {
             * { outline: none !important; }
@@ -625,17 +640,6 @@
                     margin: 0 auto;
                     max-width: var(--width);
                     box-shadow: 1px 0 0 $darker, -1px 0 0 $darker;
-                }
-                // Background; apply only on high-res screens.
-                &::before {
-                    size = 24px;
-                    content: "";
-                    opacity: 0.6;
-                    position: absolute;
-                    top: 0; right: 0; bottom: 0; left: 0;
-                    background-image: radial-gradient($darker 2px, $t 0);
-                    background-position: center center;
-                    background-size: size size;
                 }
             }
             // * Content -> Row view.

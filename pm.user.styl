@@ -82,6 +82,7 @@
     $white   = var(--white);
     $t       = var(--t);
     $radius  = var(--radius);
+    $r       = var(--radius);
 
     // * Color mixin.
     // ? All colors -> colors: $light, $darker, $dark;
@@ -371,6 +372,16 @@
         color: $white;
         background-color: black;
         &-arrow { border-color: black; }
+    }
+
+    // * Global -> Notifications.
+    .cg-notify-message {
+        radius: $r;
+        box-shadow: 0 2px 4px -1px $shadow !important;
+        &.notification-success {
+            colors: 0 0 $green;
+            span { colors: $white 0 0 }
+        }
     }
 
     // * Global -> Labels.

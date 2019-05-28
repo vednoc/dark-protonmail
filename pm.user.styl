@@ -328,6 +328,27 @@
         }
     }
 
+    // * Global -> Pagination.
+    .paginator {
+        > a {
+            transition: 0.15s ease;
+            colors: $lighter $darker $dark;
+            &:hover { colors: $light 0 0 }
+            // &:last-child { radius: 0 $r $r 0 }
+            // &:first-child { radius: $r 0 0 $r }
+        }
+        &[class*="-prev"] > [class*="btn-prev"] i,
+        &[class*="-next"] > [class*="btn-next"] i {
+            colors: $lighter 0 0;
+            opacity: 0.3;
+        }
+        // * Contacts -> Reset button background.
+        a {
+            colors: 0 $darker $t;
+            box-shadow: none !important;
+        }
+    }
+
     // * Global -> Custom button colors.
     .fa.fa {
         color: $lighter;
@@ -666,22 +687,7 @@
             img { filter: grayscale(100%); }
             &:focus { colors: $light 0 $dark }
         }
-        .paginator {
-            box-shadow: 0 2px 4px -1px $shadow;
-            a {
-                transition: 0.15s ease;
-                colors: $lighter, 0, 0;
-                box-shadow: none !important;
-                &:hover { colors: $light, 0, 0; }
-            }
-            &[class*="-previous"] > [class*="btn-previous"] i,
-            &[class*="-next"] > [class*="btn-next"] i {
-                colors: $lighter, 0, 0;
-                opacity: 0.3;
-            }
-        }
     }
-
 
     // * Content -> Message view.
     #conversation-view {

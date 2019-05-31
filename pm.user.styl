@@ -16,6 +16,7 @@
 @var text b_radius "Custom border radius" 4px
 @var text max_width "Custom width for row layout" 1000px
 @var text ui_font "Custom UI font" "'custom_font', Arial, Helvetica Nue, Helvetica, sans-serif !important"
+@var text bg_image "Custom background" "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAYElEQVQ4je3ToRlAIQiFUWdiEvdxEILJCQivksg0usVF7O8atfHHE7kfZc75lV+9dzAzA2utgWUXWmvBYccYYLVWsIjIUV50Ora7g53GO31UdiFVhcMSERgzg4lIjvKgDW1KKbJCEZa/AAAAAElFTkSuQmCC')"
 
 @var color dark    "Dark color.   " #222222
 @var color darker  "Darker color. " #2f2f2f
@@ -59,6 +60,7 @@
         --t       : transparent !important;
         --width   : max_width;
         --radius  : b_radius;
+        --bg-image: bg_image;
         --ui-font : ui_font
     }
 
@@ -141,12 +143,12 @@
         &[class*="Body-rows"] #conversation-view, #conversation-list-rows {
             position: relative;
             &::before {
-                size = 24px;
+                size = 20px;
                 content: "";
-                opacity: 0.6;
+                opacity: 0.15;
                 position: absolute;
                 top: 0; right: 0; bottom: 0; left: 0;
-                background-image: radial-gradient($darker 2px, $t 0);
+                background: var(--bg-image);
                 background-position: center center;
                 background-size: size size;
             }

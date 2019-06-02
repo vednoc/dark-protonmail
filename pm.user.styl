@@ -17,6 +17,7 @@
 @var text max_width "Custom width for row layout" 1000px
 @var text sidebar_width "Custom sidebar width" 200px
 @var text ui_font "Custom UI font" "'custom_font', Arial, Helvetica Nue, Helvetica, sans-serif !important"
+@var text mo_font "Custom mono font" "'custom_font', 'mono', monospace !important"
 @var text bg_image "Custom background" "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAYElEQVQ4je3ToRlAIQiFUWdiEvdxEILJCQivksg0usVF7O8atfHHE7kfZc75lV+9dzAzA2utgWUXWmvBYccYYLVWsIjIUV50Ora7g53GO31UdiFVhcMSERgzg4lIjvKgDW1KKbJCEZa/AAAAAElFTkSuQmCC')"
 
 @var color dark    "Dark color.   " #222222
@@ -63,7 +64,8 @@
         --sidebar : sidebar_width;
         --radius  : b_radius;
         --bg-image: bg_image;
-        --ui-font : ui_font
+        --ui-font : ui_font;
+        --mo-font : mo_font;
     }
 
     // * Use stylus-lang variables with CSS variables.
@@ -805,6 +807,8 @@
             [style*="border"] { colors: 0 $darker 0 }
             // ! Possibly reset custom emails.
             .bodyDecrypted {
+                // * Feature -> Custom code font.
+                &.plain { font-family: var(--mo-font) }
                 a[style*="color"] {
                     colors: $blue 0 0;
                     &:hover { text-decoration: underline }
@@ -901,6 +905,8 @@
         }
         // Encrypt.
         header[class*="Encrypt-"] { colors: 0 0 $t; }
+        // * Feature -> Custom code font.
+        .plaintext-editor { font-family: var(--mo-font) }
     }
     // Expiration settings.
     .alert, .alert.alert-info {

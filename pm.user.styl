@@ -808,6 +808,8 @@
             .bodyDecrypted {
                 // * Feature -> Custom code font.
                 &.plain { font-family: var(--mo-font) }
+                // Try to center the content.
+                > div[style*="width"] { margin: 0 auto !important }
                 a[style*="color"] {
                     colors: $blue 0 0;
                     &:hover { text-decoration: underline }

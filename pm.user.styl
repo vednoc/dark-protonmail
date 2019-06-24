@@ -750,7 +750,7 @@
         .message {
             radius: $radius;
             colors: 0, $darker, $dark;
-            &.open { box-shadow: 0 2px 4px 0 $shadow; }
+            &.open { box-shadow: 0 2px 4px -1px $shadow }
             &.unread { colors: 0 0 $darker; }
             .summary:not(._xd) {
                 colors: 0, $darker, $t;
@@ -761,6 +761,7 @@
                     radius: 0 0 $radius $radius;
                     colors: 0 0 $t;
                 }
+                .pm_badge, .pm_tag { colors: $lighter 0 $darker }
             }
             .details {
                 colors: 0, $darker, $t;
@@ -769,6 +770,9 @@
                     transition: 0.15s ease;
                     colors: $lighter, $darker, $dark;
                     &.active, &:hover { colors: $light, 0, $darker; }
+                }
+                .action-row {
+                    .toggleDetails { colors: $accent 0 $t }
                 }
                 // Alerts and stuff.
                 [class*="messageExtra-"] > [class*="-container"] {

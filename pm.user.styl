@@ -226,8 +226,8 @@
                 box-shadow: 0 2px 4px 0 inset $shadow;
             }
             button {
-                transition: 0.15s ease;
                 radius: $radius;
+                transition: 0.15s ease;
             }
             // New user notice.
             [class*="-new-title"] {
@@ -592,15 +592,15 @@
             // List items.
             .navigationItem-item {
                 transition: 0.15s ease;
-                colors: $light 0 0;
+                colors: $lighter 0 0;
                 .navigationItem-counter { color: inherit; }
                 .navigationItem-aside { background: none; }
-                ../:hover:not(.active) > a { colors: $lighter 0 $darker }
+                ../:hover:not(.active) > a { colors: $light 0 $darker }
             }
             &.active {
-                colors: 0, 0, $darker;
+                colors: $light 0 $darker;
                 // Fixes icon colors.
-                .fa, span { color: inherit; }
+                a, span { color: inherit !important }
             }
             // Remove the gradient.
             &::after { background: none !important; }
@@ -616,8 +616,9 @@
             em { colors: $lighter 0 0 }
             .menuLabel-link {
                 transition: 0.15s ease;
-                colors: $light 0 0;
-                ../:hover .menuLabel-link { colors: $lighter 0 0 }
+                colors: $lighter 0 0;
+                ../.active .menuLabel-title { colors: $light 0 0 }
+                ../:hover .menuLabel-link { colors: $light 0 $darker }
             }
         }
         // Compose/back button.

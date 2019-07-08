@@ -147,6 +147,7 @@
         &[class*="Body-rows"] #conversation-view, #conversation-list-rows {
             position: relative;
             &::before {
+                z-index: -1;
                 size = 20px;
                 content: "";
                 opacity: 0.15;
@@ -635,16 +636,11 @@
         }
     }
 
-
-    /* Content area. */
-    #pm_main {
-        color: var(--light);
-        background-color: var(--dark);
-    }
-
-
     // * Main -> Content.
     #pm_main {
+        color: $light;
+        background-color: $t;
+
         // * Feature -> Custom sidebar width.
         @media screen and (min-width: 900px) {
             width: calc(100% - var(--sidebar)) !important;

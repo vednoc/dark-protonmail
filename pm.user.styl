@@ -842,6 +842,40 @@
         }
     }
 
+    // * Messages -> Full-width labels in the row mode.
+    #pm_main .conversation-wrapper .conversation .subject {
+        position: relative;
+        padding-left: 0;
+        display: flex;
+        h4 {
+            display: flex;
+            flex: 1 1 auto;
+            max-width: unset !important;
+            overflow-x: auto !important;
+        }
+        .pm_labels {
+            all: unset !important;
+            display: flex !important;
+            flex: 0 0 auto !important;
+            > div[class*='labelsElement-'] {
+                padding: 1.5px;
+                transition: 0.15s ease;
+                border: 1px solid !important;
+                radius: 3px;
+                colors: 0 0 $dark;
+                &:hover { opacity: 0.6 }
+                // Stacked labels.
+                ^[1][data-format="stack"] [class*="-label"] {
+                    max-width: unset;
+                }
+            }
+            // More labels button.
+            [class*="-more"] {
+                margin-left: 0.25rem;
+                colors: $lighter $lighter 0;
+            }
+        }
+    }
 
     // * Content -> Composer.
     #pm_composer .composer {

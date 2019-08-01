@@ -547,6 +547,12 @@
             /* Remove weird gradients. */
             &::before, &::after { display: none; }
         }
+        // Wide dropdowns.
+        &.wide {
+          padding: 0;
+          > * { padding: 0 8px !important }
+        }
+        > a, > button, > ul > li { &:hover { c: 0 0 $darker }}
     }
 
     // * Welcome section.

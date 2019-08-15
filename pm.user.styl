@@ -606,6 +606,8 @@
         border-right: 1px solid;
         colors: 0, $darker, $dark;
         height: calc(100% - 51px);
+        // 'All Mail' missing icon.
+        button + .menu > li:last-child .fa::before { content: '\f0e0' }
         // * Feature -> Custom sidebar width.
         @media screen and (min-width: 900px) {
             width: var(--sidebar);

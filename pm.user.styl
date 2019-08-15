@@ -712,8 +712,11 @@
 
     // * Content -> Toolbar.
     .pm_toolbar {
+        padding: 8px !important;
         colors: 0, 0, $dark;
         box-shadow: 0 1px 0 0 $darker;
+        // Reset height.
+        &, .elements-selector { height: unset }
         .pm_buttons {
             colors: $lighter, 0, 0;
             a, button { box-shadow: 0 2px 4px -1px $shadow; }

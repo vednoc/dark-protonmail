@@ -52,6 +52,7 @@
         --accent  : accent;
         --icon    : icon;
         --shadow  : shadow;
+        --bshadow : 0 2px 4px var(--shadow);
         --yellow  : yellow;
         --orange  : orange;
         --red     : red;
@@ -79,7 +80,7 @@
     $accent  = var(--accent);
     $icon    = var(--icon);
     $shadow  = var(--shadow);
-    $bshadow = var(--box-shadow);
+    bsh      = 0 2px 4px var(--shadow);
     $yellow  = var(--yellow);
     $orange  = var(--orange);
     $red     = var(--red);
@@ -142,7 +143,7 @@
         &[class*="Body-rows"] #tour-layout [class*="Btns-btn-rows"],
         &:not([class*="Body-rows"]) #tour-layout [class*="Btns-btn-column"] {
             colors: $accent, 0, $darker;
-            box-shadow: 0 2px 4px 0 inset $shadow !important;
+            box-shadow: inset bsh !important;
         }
 
         // * Feature -> Custom layout buttons.
@@ -237,7 +238,7 @@
             input {
                 rad: r;
                 colors: $lighter, $darker, 0;
-                box-shadow: 0 2px 4px 0 inset $shadow;
+                box-shadow: inset bsh;
             }
             button {
                 rad: r;
@@ -419,7 +420,7 @@
     // * Global -> Notifications.
     .cg-notify-message {
         rad: r;
-        box-shadow: 0 2px 4px -1px $shadow !important;
+        box-shadow: bsh !important;
         &.notification-success {
             colors: 0 0 $green;
             span { colors: $white 0 0 }
@@ -651,7 +652,7 @@
             rad: r;
             transition: 0.15s ease;
             colors: $light $darker $t;
-            box-shadow: 0 2px 4px -1px $shadow;
+            box-shadow: bsh;
             &:hover { colors: $accent 0 $darker }
         }
         // Scrollbar.
@@ -721,7 +722,7 @@
         &, .elements-selector { height: unset }
         .pm_buttons {
             colors: $lighter, 0, 0;
-            a, button { box-shadow: 0 2px 4px -1px $shadow; }
+            a, button { box-shadow: bsh }
             &-child, a, button {
                 colors: 0, $darker, $dark;
                 // TODO: Temporary implementation.
@@ -774,7 +775,7 @@
         .message {
             rad: r;
             colors: 0, $darker, $dark;
-            &.open { box-shadow: 0 2px 4px -1px $shadow }
+            &.open { box-shadow: bsh }
             &.unread { colors: 0 0 $darker; }
             .more {
                 colors: $light $darker $dark;
@@ -833,7 +834,7 @@
             pre {
                 rad: r;
                 colors: $light $darker $dark;
-                box-shadow: 0 2px 4px 0 $shadow;
+                box-shadow: bsh;
             }
             div[style*="background"] { colors: 0 0 $t }
             [style*="border"] { colors: 0 $darker 0 }
@@ -907,7 +908,7 @@
         rad: r;
         border: 1px solid;
         colors: $lighter, $darker, $dark;
-        box-shadow: 0 2px 4px -1px $shadow;
+        box-shadow: bsh;
         // Header.
         // TODO: Optimize for different components.
         &Header-container, &Options-container {
@@ -954,7 +955,7 @@
             // Dropdown list.
             [class*="-select-list"] {
                 colors: 0 0 $dark;
-                box-shadow: 0 2px 4px 0 $shadow;
+                box-shadow: bsh;
                 > li {
                     padding: 0 1.5rem;
                     colors: $lighter 0 0;

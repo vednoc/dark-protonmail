@@ -90,7 +90,7 @@
     $green   = var(--green);
     $white   = var(--white);
     $t       = var(--t);
-    $radius  = var(--radius);
+    r        = var(--radius);
     $r       = var(--radius);
 
     // * Color mixin.
@@ -113,9 +113,8 @@
         if x is a 'call' or x is a 'rgba' {   fill: xi is 0 ? x : x !important }
         if y is a 'call' or y is a 'rgba' { stroke: yi is 0 ? y : y !important }
     }
-
-    // * Border radius mixin.
-    radius() { border-radius: arguments; }
+    // Border radius mixin.
+    rad() { border-radius: arguments }
 
     /* Scrollbars. */
     ::-webkit-scrollbar {
@@ -227,7 +226,7 @@
         background-image: none !important;
         .pm_panel-login__inner {
             padding: 20px 30px 0;
-            radius: $radius;
+            rad: r;
             colors: 0, $darker, $dark;
             box-shadow: 0 4px 16px -2px $shadow;
             .link {
@@ -236,12 +235,12 @@
             }
             img[class="logo"] { display: none; }
             input {
-                radius: $radius;
+                rad: r;
                 colors: $lighter, $darker, 0;
                 box-shadow: 0 2px 4px 0 inset $shadow;
             }
             button {
-                radius: $radius;
+                rad: r;
                 transition: 0.15s ease;
             }
             // New user notice.
@@ -256,7 +255,7 @@
             a { colors: $accent, 0, 0; }
         }
         [class*="link-signup-button"] {
-            radius: $radius;
+            rad: r;
             transition: 0.15s ease;
             colors: $light, $darker, $darker;
             &:hover { colors: $accent 0 $dark }
@@ -313,7 +312,7 @@
             colors: 0 0 $accent;
             // Alert in the dropdown.
             + .pm_dropdown [class*="newVersion-container"] {
-                radius: $radius;
+                rad: r;
                 colors: $light $accent $t;
             }
         }
@@ -323,7 +322,7 @@
     [class*="searchForm-container"] {
         // Search area.
         .search-form-fieldset {
-            radius: $radius;
+            rad: r;
             colors: $lighter, 0, $dark;
             box-shadow: 0 0 0 1px inset $darker;
         }
@@ -331,7 +330,7 @@
         [class*="-action-button-"]:hover { c: 0 0 $t }
         // Dropdown.
         .searchForm-advanced-container {
-            radius: $radius;
+            rad: r;
             colors: 0, 0, $dark;
             box-shadow: 0 0 0 1px $darker, 0 2px 8px 0 $shadow;
             // Fields background reset.
@@ -339,7 +338,7 @@
             label, .fa { color: $light; }
             // Inputs and buttons.
             input, button {
-                radius: $radius;
+                rad: r;
                 box-shadow: 0 1px 4px 0 inset $shadow;
                 colors: 0, $darker, 0;
                 &:focus { colors: 0, $blue, 0; }
@@ -347,11 +346,11 @@
             }
             // Select menus.
             .pm_select {
-                radius: $radius;
+                rad: r;
                 colors: 0, 0, $t;
                 box-shadow: 0 0 0 1px inset $darker;
                 select {
-                    radius: $radius;
+                    rad: r;
                     box-shadow: 0 1px 4px 0 inset $shadow;
                     &:focus { box-shadow: 0 0 0 1px inset $blue; }
                 }
@@ -378,8 +377,8 @@
             transition: 0.15s ease;
             colors: $lighter $darker $dark;
             &:hover { colors: $light 0 0 }
-            // &:last-child { radius: 0 $r $r 0 }
-            // &:first-child { radius: $r 0 0 $r }
+            // &:last-child { rad: 0 r r 0 }
+            // &:first-child { rad: r 0 0 r }
         }
         &[class*="-prev"] > [class*="btn-prev"] i,
         &[class*="-next"] > [class*="btn-next"] i {
@@ -411,7 +410,7 @@
 
     // * Global -> Tooltips.
     .tooltip {
-        radius: $radius;
+        rad: r;
         color: $white;
         background-color: black;
         &-arrow { border-color: black; }
@@ -419,7 +418,7 @@
 
     // * Global -> Notifications.
     .cg-notify-message {
-        radius: $r;
+        rad: r;
         box-shadow: 0 2px 4px -1px $shadow !important;
         &.notification-success {
             colors: 0 0 $green;
@@ -431,7 +430,7 @@
     .pm_labels {
         [class*="-label"] {
             transition: 0.15s ease;
-            radius: calc(var(--radius) / 2);
+            rad: calc(var(--radius) / 2);
             border: 1px solid !important;
             &:hover { opacity: 0.6; }
             // Fixes label misalignment in messages.
@@ -539,7 +538,7 @@
 
     // * Global -> Dropdowns.
     .pm_dropdown {
-        radius: $radius !important;
+        rad: r !important;
         colors: 0, $darker, $dark;
         box-shadow: 0 2px 8px -1px $shadow;
         .dropdown-folder-title { colors: 0, $darker, 0; }
@@ -569,7 +568,7 @@
         section {
             padding: 0.5rem;
             margin: 8px;
-            radius: $radius;
+            rad: r;
             span { colors: $lighter, 0, 0; }
             strong { colors: $accent, 0, 0; }
             img { filter: invert(1) hue-rotate(180deg) opacity(0.2); }
@@ -578,12 +577,12 @@
 
     // * Command pallete.
     [class*="commandPalette-container"] {
-        radius: $radius;
+        rad: r;
         colors: 0, 0, $dark;
         box-shadow: 0 2px 8px -2px $shadow;
         // Input section.
         [class*="autocomplete-c"] {
-            radius: $radius;
+            rad: r;
             colors: 0, 0, $dark;
             box-shadow: 0 0 0 1px $darker;
         }
@@ -647,7 +646,7 @@
         // Compose/back button.
         [class*="-compose"], [class*="-back"] {
             margin: 16px 0;
-            radius: $radius;
+            rad: r;
             transition: 0.15s ease;
             colors: $light $darker $t;
             box-shadow: 0 2px 4px -1px $shadow;
@@ -768,7 +767,7 @@
         }
         // Message content.
         .message {
-            radius: $radius;
+            rad: r;
             colors: 0, $darker, $dark;
             &.open { box-shadow: 0 2px 4px -1px $shadow }
             &.unread { colors: 0 0 $darker; }
@@ -782,7 +781,7 @@
                 .summary-right:not(._is):not(._xd) { &, * { colors: 0, 0, $t; }}
                 // Rounded corners for message body.
                 + div .frame {
-                    radius: 0 0 $radius $radius;
+                    rad: 0 0 r r;
                     colors: 0 0 $t;
                 }
                 .pm_badge, .pm_tag { colors: $lighter 0 $darker }
@@ -800,7 +799,7 @@
                 }
                 // Alerts and stuff.
                 [class*="messageExtra-"] > [class*="-container"] {
-                    radius: $radius;
+                    rad: r;
                     colors: $lighter, 0, $darker;
                     a { colors: $accent, 0, 0; }
                     span { colors: $lighter, 0, 0; }
@@ -818,7 +817,7 @@
                     opacity: 0.3;
                     pointer-events: all;
                     transition: 0.15s ease;
-                    border-radius: $radius;
+                    border-radius: r;
                     ../:hover img {
                         opacity: 1 !important;
                         transition-delay: 0.5s;
@@ -827,7 +826,7 @@
             }
             blockquote { colors: $lighter $darker 0; }
             pre {
-                radius: $radius;
+                rad: r;
                 colors: $light $darker $dark;
                 box-shadow: 0 2px 4px 0 $shadow;
             }
@@ -855,7 +854,7 @@
             .listAttachments-list {
                 padding-top: 10px;
                 .listAttachments-att {
-                    radius: $radius;
+                    rad: r;
                     colors: $lighter, $darker, $dark;
                     &::after { colors: 0, $darker, 0; }
                 }
@@ -882,7 +881,7 @@
                 padding: 1.5px;
                 transition: 0.15s ease;
                 border: 1px solid !important;
-                radius: 3px;
+                rad: 3px;
                 colors: 0 0 $dark;
                 &:hover { opacity: 0.6 }
                 // Stacked labels.
@@ -900,7 +899,7 @@
 
     // * Content -> Composer.
     #pm_composer .composer {
-        radius: $radius;
+        rad: r;
         border: 1px solid;
         colors: $lighter, $darker, $dark;
         box-shadow: 0 2px 4px -1px $shadow;
@@ -920,7 +919,7 @@
         }
         // TODO: Possible refactor with global `pm_button` styles.
         .pm_button {
-            radius: calc(var(--radius) / 2);
+            rad: calc(var(--radius) / 2);
             transition: 0.15s ease;
             colors: $lighter, $darker, $dark;
             &:hover { colors: $light, 0, $darker; }
@@ -938,12 +937,12 @@
         // Popouts.
         .squire-popover {
             colors: 0 $darker $dark;
-            &, &-second { radius: $radius !important; }
+            &, &-second { rad: r !important }
         }
         // Toolbar.
         .squire-toolbar {
-            radius: $radius $radius 0 0;
-            button { radius: $radius }
+            rad: r r 0 0;
+            button { rad: r }
         }
         [class*="squireToolbar"] {
             colors: 0 $darker $t;
@@ -985,14 +984,14 @@
     .angular-squire-wrapper {
         margin-top: -1px;
         colors: 0 $darker 0;
-        &, & > iframe { radius: 0 0 $radius $radius }
+        &, & > iframe { rad: 0 0 r r }
     }
 
 
     // * Modals.
     .pm_modal {
         .modal-dialog {
-            radius: $radius;
+            rad: r;
             border-width: 1px;
             colors: 0, $darker, $dark;
             .modal-content {
@@ -1010,7 +1009,7 @@
             &:hover { colors: $accent, 0, 0; }
         }
         .pm_button {
-            radius: $radius;
+            rad: r;
             transition: 0.15s ease;
             colors: $lighter, $darker, $dark;
             &:hover, &:focus { colors: $light, 0, $darker; }
@@ -1061,12 +1060,12 @@
             &, &::after, &::before { background: none !important; }
             [class*="Column-container"] {
                 margin: 0 4px 0 0;
-                radius: $radius !important;
+                rad: r !important;
                 colors: $lighter, $darker, $dark;
                 box-shadow: none !important;
                 > :not(:last-child) { colors: 0, $darker, 0; }
                 header {
-                    radius: $radius $radius 0 0;
+                    rad: r r 0 0;
                     colors: 0, $red, 0;
                     box-shadow: none;
                     > .isCurrent {

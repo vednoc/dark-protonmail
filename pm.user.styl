@@ -21,6 +21,7 @@
 @var text bg_image "Custom background" "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAYElEQVQ4je3ToRlAIQiFUWdiEvdxEILJCQivksg0usVF7O8atfHHE7kfZc75lV+9dzAzA2utgWUXWmvBYccYYLVWsIjIUV50Ora7g53GO31UdiFVhcMSERgzg4lIjvKgDW1KKbJCEZa/AAAAAElFTkSuQmCC')"
 
 @var color dark    "Dark color.   " #222222
+@var color darken  "Darken color. " #282828
 @var color darker  "Darker color. " #2f2f2f
 @var color light   "Light color.  " #d1d1d1
 @var color lighter "Lighter color." #c9c9c9
@@ -44,6 +45,7 @@
         scrollbar-color: var(--darker) var(--dark);
         --note    : "Dark-ProtonMail v0.2.0";
         --dark    : dark;
+        --darken  : darken;
         --darker  : darker;
         --light   : light;
         --lighter : lighter;
@@ -70,6 +72,7 @@
 
     // * Use stylus-lang variables with CSS variables.
     $dark    = var(--dark);
+    $darken  = var(--darken);
     $darker  = var(--darker);
     $light   = var(--light);
     $lighter = var(--lighter);
@@ -703,7 +706,7 @@
             // Hover event.
             &:hover {
                 background-image: none !important;
-                colors: 0, 0, $darker;
+                colors: 0, 0, $darken;
             }
         }
     }
@@ -774,7 +777,7 @@
                 &:not([class*='-toggle']) { colors: $accent $accent 0 }
             }
             .summary:not(._xd) {
-                colors: 0, $darker, $t;
+                colors: 0, $darker, $darken;
                 // Transparentize all elements.
                 .summary-right:not(._is):not(._xd) { &, * { colors: 0, 0, $t; }}
                 // Rounded corners for message body.
@@ -785,7 +788,7 @@
                 .pm_badge, .pm_tag { colors: $lighter 0 $darker }
             }
             .details {
-                colors: 0, $darker, $t;
+                colors: 0, $darker, $darken;
                 // TODO: Possible refactor with global `pm_buttons` styles.
                 .action-row .pm_buttons > a {
                     transition: 0.15s ease;

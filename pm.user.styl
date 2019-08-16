@@ -25,7 +25,6 @@
 @var color darker  "Darker color. " #2f2f2f
 @var color light   "Light color.  " #d1d1d1
 @var color lighter "Lighter color." #c9c9c9
-@var color icon    "Icon color.   " #e1e1e1
 @var color accent  "Accent color. " #7289da
 @var color yellow  "Yellow color. " #f0c674
 @var color orange  "Orange color. " #de935f
@@ -50,7 +49,6 @@
         --light   : light;
         --lighter : lighter;
         --accent  : accent;
-        --icon    : icon;
         --shadow  : shadow;
         --bshadow : 0 2px 4px var(--shadow);
         --yellow  : yellow;
@@ -72,45 +70,38 @@
     }
 
     // * Use stylus-lang variables with CSS variables.
-    $dark    = var(--dark);
-    $darken  = var(--darken);
-    $darker  = var(--darker);
-    $light   = var(--light);
-    $lighter = var(--lighter);
-    $accent  = var(--accent);
-    $icon    = var(--icon);
-    $shadow  = var(--shadow);
-    bsh      = 0 2px 4px var(--shadow);
-    $yellow  = var(--yellow);
-    $orange  = var(--orange);
-    $red     = var(--red);
-    $magenta = var(--magenta);
-    $violet  = var(--violet);
-    $blue    = var(--blue);
-    $cyan    = var(--cyan);
-    $green   = var(--green);
-    $white   = var(--white);
-    $t       = var(--t);
-    r        = var(--radius);
-    $r       = var(--radius);
+    bg      = var(--dark);
+    hl      = var(--darken);
+    bd      = var(--darker);
+    fg      = var(--light);
+    cm      = var(--lighter);
+    ac      = var(--accent);
+    sh      = var(--shadow);
+    bsh     = var(--bshadow);
+    yellow  = var(--yellow);
+    orange  = var(--orange);
+    red     = var(--red);
+    magenta = var(--magenta);
+    violet  = var(--violet);
+    blue    = var(--blue);
+    cyan    = var(--cyan);
+    green   = var(--green);
+    white   = var(--white);
+    r       = var(--radius);
+    t       = var(--t);
+    outer   = 0 0 0 1px bd;
+    inner   = inset outer;
 
-    // * Color mixin.
-    // ? All colors -> colors: $light, $darker, $dark;
-    // ? Only background-color -> colors: 0, 0, $dark;
-    colors(x, y, z) {
-        if x is a 'call' { color: x !important; }
-        if y is a 'call' { border-color: y !important; }
-        if z is a 'call' { background-color: z !important; }
-    }
-    // All colors: `c: $light $darker $dark;`
-    // Only border-color: `c: 0 $darker;`
+    // Color mixin.
+    // All colors: `c: fg bd bg;`
+    // Only border-color: `c: 0 bd;`
     c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
         if x is a 'call' or x is a 'rgba' {            color: xi is 0 ? x : x !important }
         if y is a 'call' or y is a 'rgba' {     border-color: yi is 0 ? y : y !important }
         if z is a 'call' or z is a 'rgba' { background-color: zi is 0 ? z : z !important }
     }
     // SVG colors.
-    s(x, y = 0, xi = 1, yi = 1) {
+    v(x, y = 0, xi = 1, yi = 1) {
         if x is a 'call' or x is a 'rgba' {   fill: xi is 0 ? x : x !important }
         if y is a 'call' or y is a 'rgba' { stroke: yi is 0 ? y : y !important }
     }
@@ -121,17 +112,16 @@
     ::-webkit-scrollbar {
         width: 10px !important;
         &-scrollbar-thumb {
-            border: 1px solid $dark;
-            background-color: $darker;
-            &:hover, &:active { background-color: $accent; }
+            border: 1px solid bg;
+            background-color: bd;
+            &:hover, &:active { background-color: ac }
         }
-        &-scrollbar-track { background-color: $dark; }
+        &-scrollbar-track { background-color: bg }
     }
 
 
     body {
-        color: var(--lighter);
-        background: var(--dark) !important;
+        c: cm 0 bg 0 0 0;
 
         // * Feature -> Custom UI font.
         &, .pm_opensans, [class*="header"] {
@@ -142,19 +132,19 @@
         #tour-layout [class*="Btns-btn-"]:hover,
         &[class*="Body-rows"] #tour-layout [class*="Btns-btn-rows"],
         &:not([class*="Body-rows"]) #tour-layout [class*="Btns-btn-column"] {
-            c: $accent 0 $darken;
+            c: ac 0 hl;
             box-shadow: inset bsh !important;
         }
 
         // * Feature -> Custom layout buttons.
         if ( layout_buttons == 1 ) {
             #tour-layout [class*="LayoutBtns-btn-column"] {
-                img { display: none !important; }
-                &::before { content: "Col"; }
+                img { display: none !important }
+                &::before { content: "Col" }
             }
             #tour-layout [class*="LayoutBtns-btn-row"] {
-                img { display: none !important; }
-                &::before { content: "Row"; }
+                img { display: none !important }
+                &::before { content: "Row" }
             }
         }
 
@@ -176,50 +166,31 @@
 
         // * Feature -> Remove `outline` from all elements.
         if ( remove_outline == 1 ) {
-            * { outline: none !important; }
+            * { outline: none !important }
         }
     }
 
-    h1, h2, h3, h4, h5, h6, strong {
-        color: var(--lighter) !important;
-    }
-
+    ::placeholder { c: cm }
+    h1, h2, h3, h4, h5, h6, strong { c: cm }
     a, p a {
         text-decoration: none;
-        color: var(--accent);
+        c: ac 0 0 0;
     }
-
-    ::placeholder { colors: $lighter, 0, 0; }
-
+    select { c: fg 0 bd 1 0 0 }
+    blockquote { border-left-color: ac }
+    section { c: 0 bd }
     input {
-        color: var(--lighter) !important;
+        c: cm;
         background: none !important;
     }
-
-    select {
-        color: var(--light) !important;
-        background-color: var(--darker);
-    }
-
-    blockquote {
-        border-left-color: var(--accent);
-    }
-
-    section {
-        border-color: var(--darker) !important;
-    }
-
     kbd {
-        color: var(--lighter);
-        background-color: var(--dark);
-        box-shadow: inset 0 0 0 1px var(--darker);
+        c: cm 0 bg 0 0 0;
+        box-shadow: inner;
     }
 
     .pm_panel {
-        color: var(--lighter);
-    }
-    .pm_panel.alt {
-        background-color: transparent;
+        c: cm 0 0 0;
+        &.alt { c: 0 0 t 0 0 0 }
     }
 
     // * Login page.
@@ -228,16 +199,16 @@
         .pm_panel-login__inner {
             padding: 20px 30px 0;
             rad: r;
-            colors: 0, $darker, $dark;
-            box-shadow: 0 4px 16px -2px $shadow;
+            c: 0 bd bg;
+            box-shadow: 0 4px 16px -2px sh;
             .link {
                 text-decoration: underline;
-                colors: $lighter 0 0;
+                c: cm;
             }
-            img[class="logo"] { display: none; }
+            img[class="logo"] { display: none }
             input {
                 rad: r;
-                colors: $lighter, $darker, 0;
+                c: cm bd;
                 box-shadow: inset bsh;
             }
             button {
@@ -246,37 +217,35 @@
             }
             // New user notice.
             [class*="-new-title"] {
-                &::before, &::after { colors: 0, $darker, 0; }
+                &::before, &::after { c: 0 bd 0 }
             }
         }
         // `Beta` promotion.
         .pm_panel-bottom {
             padding: 10px 20px;
             text-align: center;
-            a { colors: $accent, 0, 0; }
+            a { c: ac 0 0 }
         }
         [class*="link-signup-button"] {
             rad: r;
             transition: 0.15s ease;
-            colors: $light, $darker, $darker;
-            &:hover { colors: $accent 0 $dark }
+            c: fg bd bd;
+            &:hover { c: ac 0 bg }
         }
-        #pm_footer {
-            colors: $lighter, 0, 0;
-            a { colors: $accent 0 0 }
-        }
+        #pm_footer { c: cm }
+        #pm_footer a { c: ac }
     }
 
     // * Navbar.
     header[class*="header"] {
         min-height: 50px;
-        colors: $lighter $t $dark;
-        box-shadow: 0 1px 0 0 $darker;
+        c: cm t bg;
+        box-shadow: 0 1px bd;
         // Re-imagine the logo.
         [class*="securedDesktop-logo" i] {
             height: 51px;
             padding: 0;
-            colors: $light, 0, $t;
+            c: fg 0 t;
             // * Feature -> Custom sidebar width.
             @media screen and (min-width: 900px) {
                 width: var(--sidebar);
@@ -289,7 +258,7 @@
                 transition: 0.15s ease;
                 background: none;
             }
-            &:hover { colors: $accent, 0, 0; }
+            &:hover { c: ac }
         }
         // Navigation on the right.
         .navigation > {
@@ -297,8 +266,8 @@
                 border: none;
                 min-height: 51px;
                 transition: 0.15s ease;
-                colors: $lighter 0 0;
-                &:hover, a.active { colors: $light 0 $darker; }
+                c: cm;
+                &:hover, a.active { c: fg 0 bd }
             }
         }
         // Sub-nav height reset.
@@ -310,11 +279,11 @@
         [class*="-newVersion-info"] {
             left calc(50% + 2px);
             top: 8px !important;
-            colors: 0 0 $accent;
+            c: 0 0 ac;
             // Alert in the dropdown.
             + .pm_dropdown [class*="newVersion-container"] {
                 rad: r;
-                colors: $light $accent $t;
+                c: fg ac t;
             }
         }
     }
@@ -324,41 +293,41 @@
         // Search area.
         .search-form-fieldset {
             rad: r;
-            colors: $lighter, 0, $dark;
-            box-shadow: 0 0 0 1px inset $darker;
+            c: cm 0 bg;
+            box-shadow: inner;
         }
         // Toggle button.
-        [class*="-action-button-"]:hover { c: 0 0 $t }
+        [class*="-action-button-"]:hover { c: 0 0 t }
         // Dropdown.
         .searchForm-advanced-container {
             rad: r;
-            colors: 0, 0, $dark;
-            box-shadow: 0 0 0 1px $darker, 0 2px 8px 0 $shadow;
+            c: 0 0 bg;
+            box-shadow: outer, 0 2px 8px 0 sh;
             // Fields background reset.
-            [class*="searchForm-advanced-"] { colors: $lighter, 0, $t; }
-            label, .fa { color: $light; }
+            [class*="searchForm-advanced-"] { c: cm 0 t }
+            label, .fa { color: fg; }
             // Inputs and buttons.
             input, button {
                 rad: r;
-                box-shadow: 0 1px 4px 0 inset $shadow;
-                colors: 0, $darker, 0;
-                &:focus { colors: 0, $blue, 0; }
-                &[type="submit"] { &, .fa { colors: $white, $blue, $blue; }}
+                box-shadow: 0 1px 4px 0 inset sh;
+                c: 0 bd;
+                &:focus { c: 0 blue }
+                &[type="submit"] { &, .fa { c: white blue blue }}
             }
             // Select menus.
             .pm_select {
                 rad: r;
-                colors: 0, 0, $t;
-                box-shadow: 0 0 0 1px inset $darker;
+                c: 0 0 t;
+                box-shadow: inner;
                 select {
                     rad: r;
-                    box-shadow: 0 1px 4px 0 inset $shadow;
-                    &:focus { box-shadow: 0 0 0 1px inset $blue; }
+                    box-shadow: inset bsh;
+                    &:focus { box-shadow: inset 0 0 0 1px blue }
                 }
             }
             // Header.
             [class*="-advanced-main"] {
-                box-shadow: 0 1px 0 0 $darker;
+                box-shadow: 0 1px bd;
             }
         }
     }
@@ -367,8 +336,8 @@
     .pm_button {
         transition: 0.15s ease;
         &.primary {
-            colors: $accent $accent $dark;
-            &:hover { colors: $white 0 $accent; }
+            c: ac ac bg;
+            &:hover { c: white 0 ac }
         }
     }
 
@@ -376,45 +345,45 @@
     .paginator {
         > a {
             transition: 0.15s ease;
-            colors: $lighter $darker $dark;
-            &:hover { colors: $light 0 0 }
+            c: cm bd bg;
+            &:hover { c: fg }
             // &:last-child { rad: 0 r r 0 }
             // &:first-child { rad: r 0 0 r }
         }
         &[class*="-prev"] > [class*="btn-prev"] i,
         &[class*="-next"] > [class*="btn-next"] i {
-            colors: $lighter 0 0;
+            c: cm;
             opacity: 0.3;
         }
         // * Contacts -> Reset button background.
         a {
-            colors: 0 $darker $t;
+            c: 0 bd t;
             box-shadow: none !important;
         }
     }
 
     // * Global -> Custom button colors.
     .fa.fa {
-        color: $lighter;
-        &-star { colors: $accent, 0, 0; }
-        &-trash-o { &, &:hover { colors: $red, 0, 0; }}
-        &-inbox { &, &:hover { colors: $blue, 0, 0; }}
-        &-archive { &, &:hover { colors: $cyan, 0, 0; }}
-        &-ban { &, &:hover { colors: $orange, 0, 0; }}
-        &-times-circle-o { &, &:hover { colors: $red, 0, 0; }}
-        &-send { &, &:hover { colors: $green, 0, 0; }}
-        &-folder { &, &:hover { colors: $yellow, 0, 0; }}
-        &-search { &, &:hover { colors: $lighter, 0, 0; }}
+        color: cm;
+        &-star { c: ac }
+        &-trash-o { &, &:hover { c: red }}
+        &-inbox { &, &:hover { c: blue }}
+        &-archive { &, &:hover { c: cyan }}
+        &-ban { &, &:hover { c: orange }}
+        &-times-circle-o { &, &:hover { c: red }}
+        &-send { &, &:hover { c: green }}
+        &-folder { &, &:hover { c: yellow }}
+        &-search { &, &:hover { c: cm }}
         // ? Inherit label's custom color.
-        &[data-label-id] { color: inherit !important; }
+        &[data-label-id] { color: inherit !important }
     }
 
     // * Global -> Tooltips.
     .tooltip {
         rad: r;
-        color: $white;
+        color: white;
         background-color: black;
-        &-arrow { border-color: black; }
+        &-arrow { border-color: black }
     }
 
     // * Global -> Notifications.
@@ -422,8 +391,8 @@
         rad: r;
         box-shadow: bsh !important;
         &.notification-success {
-            colors: 0 0 $green;
-            span { colors: $white 0 0 }
+            c: 0 0 green;
+            span { c: white }
         }
     }
 
@@ -444,71 +413,71 @@
 
     // * Global -> Tables.
     .pm_table > table {
-        colors: 0 0 $t;
+        c: 0 0 t;
         box-shadow: none;
         thead th {
-            colors: $light $darker $t;
+            c: fg bd t;
             // Sort buttons.
-            .fa.fa-sort { &-desc, &-asc { colors: $lighter 0 0 }}
+            .fa.fa-sort { &-desc, &-asc { c: cm }}
         }
         tbody tr {
             // Active row.
             &[class*="-activeContact"] td {
-                colors: $light $darker $darker;
+                c: fg bd bd;
                 span { &, * { color: inherit }}
             }
             // Indicator.
             &[class*="-activeCursor"] td:first-child {
-                box-shadow: 4px 0 0 0 inset $accent;
+                box-shadow: inset 4px 0 ac;
             }
             // Table cells.
             td {
                 border-left: none;
-                colors: $lighter 0 0;
-                ../:hover td { colors: $light $darker $darker }
+                c: cm;
+                ../:hover td { c: fg bd bd }
             }
         }
     }
 
     // * Global -> Loader.
-    .pm-loader-fullpage { colors: 0, 0, $dark; }
+    .pm-loader-fullpage { c: 0 0 bg }
 
     // * Global -> Loading.
     #pm_loading {
-        colors: 0, 0, $dark;
-        box-shadow: 0 2px 8px 0 $shadow;
+        c: 0 0 bg;
+        box-shadow: 0 2px 8px sh;
         &::after {
-            border: 5px solid $darker;
-            border-top-color: $accent;
+            border: 5px solid bd;
+            border-top-color: ac;
         }
-        svg path { fill: $accent; }
+        svg path { fill: ac }
     }
 
     // * Global -> Atom lodaer.
     #pm_slow, #pm_slow2, [class*="loadingUnlock-"] {
-        colors: $lighter, 0, $dark;
+        c: cm 0 bg;
         .atomLoader {
-            &-proton { colors: 0, 0, $light; }
-            &-item, &-item2, &-item3 { colors: 0, $lighter, 0; }
-            &-text { colors: $lighter, 0, 0; }
+            &-proton { c: 0 0 fg }
+            &-item, &-item2, &-item3 { c: 0 cm }
+            &-text { c: cm }
         }
     }
 
     // * Global -> Storage.
     .storageProgress-container, .storageArea {
-        .link span { colors: $accent 0 0 }
+        .link span { c: ac }
         .storageBar {
-            colors: 0 0 $darker;
-            &-progress { colors: 0 0 $accent; }
+            c: 0 0 bd;
+            &-progress { c: 0 0 ac }
         }
         // Hide version number.
-        + .version { display: none; }
+        + .version { display: none }
     }
 
     // * Global -> Checkboxes.
     .customCheckbox-input {
         + .customCheckbox-mask {
-            colors: 0, $darker, $dark;
+            c: 0 bd bg;
             background-image: none;
             ../:checked + .customCheckbox-mask {
                 position: relative;
@@ -520,7 +489,7 @@
                     border-right: 2px solid;
                     border-bottom: 2px solid;
                     transform: rotate(45deg);
-                    colors: 0, $light, 0;
+                    c: 0 fg;
                 }
             }
         }
@@ -530,9 +499,9 @@
     .customRadio-input {
         + .customRadio-mask {
             background-image: none;
-            colors: 0, $darker, $dark;
+            c: 0 bd bg;
             ../:checked + .customRadio-mask {
-                box-shadow: 0 0 0 3px inset $darker, 0 0 0 10px inset $accent;
+                box-shadow: inset 0 0 0 3px bd, inset 0 0 0 10px ac;
             }
         }
     }
@@ -540,63 +509,63 @@
     // * Global -> Dropdowns.
     .pm_dropdown {
         rad: r !important;
-        colors: 0, $darker, $dark;
-        box-shadow: 0 2px 8px -1px $shadow;
-        .dropdown-folder-title { colors: 0, $darker, 0; }
+        c: 0 bd bg;
+        box-shadow: 0 2px 8px -1px sh;
+        .dropdown-folder-title { c: 0 bd }
         // Text color; exludes colored labels.
-        a, span:not([style]), button { colors: $lighter $darker 0 }
+        a, span:not([style]), button { c: cm bd }
         // Folders.
         .scrollbox-container {
-            colors: 0, $darker, $t;
+            c: 0 bd t;
             background-image: none;
             /* Remove weird gradients. */
-            &::before, &::after { display: none; }
+            &::before, &::after { display: none }
         }
         // Wide dropdowns.
         &.wide {
           padding: 16px;
           > * { padding: 0 8px !important }
         }
-        > a, > button, > ul > li { &:hover { c: 0 0 $darker }}
+        > a, > button, > ul > li { &:hover { c: 0 0 bd }}
     }
 
     // * Welcome section.
     #pm_view #pm_latest {
         header {
             padding: 8px 24px;
-            colors: $light, $darker, 0;
+            c: fg bd;
         }
         section {
             padding: 0.5rem;
             margin: 8px;
             rad: r;
-            span { colors: $lighter, 0, 0; }
-            strong { colors: $accent, 0, 0; }
-            img { filter: invert(1) hue-rotate(180deg) opacity(0.2); }
+            span { c: cm }
+            strong { c: ac }
+            img { filter: invert(1) hue-rotate(180deg) opacity(0.2) }
         }
     }
 
     // * Command pallete.
     [class*="commandPalette-container"] {
         rad: r;
-        colors: 0, 0, $dark;
-        box-shadow: 0 2px 8px -2px $shadow;
+        c: 0 0 bg;
+        box-shadow: 0 2px 8px -2px sh;
         // Input section.
         [class*="autocomplete-c"] {
             rad: r;
-            colors: 0, 0, $dark;
-            box-shadow: 0 0 0 1px $darker;
+            c: 0 0 bg;
+            box-shadow: outer;
         }
         // Commands.
         [class*="Emails-"] {
             max-height: 150px;
-            colors: 0, 0, $t;
+            c: 0 0 t;
             // Items.
             .needsclick {
                 transition: 0.15s ease;
-                colors: 0, $darker, 0;
-                &[aria-selected="false"] { colors: $lighter, 0, $dark; }
-                &[aria-selected="true"], &:hover { colors: $light, 0, $darker; }
+                c: 0 bd 0;
+                &[aria-selected="false"] { c: cm 0 bg }
+                &[aria-selected="true"], &:hover { c: fg 0 bd }
             }
         }
     }
@@ -605,7 +574,7 @@
     #ptSidebar {
         min-width: unset;
         border-right: 1px solid;
-        colors: 0, $darker, $dark;
+        c: 0 bd bg;
         height: calc(100% - 51px);
         // 'All Mail' missing icon.
         button + .menu > li:last-child .fa::before { content: '\f0e0' }
@@ -617,33 +586,33 @@
             // List items.
             .navigationItem-item {
                 transition: 0.15s ease;
-                colors: $lighter 0 0;
-                .navigationItem-counter { color: inherit; }
-                .navigationItem-aside { background: none; }
-                ../:hover:not(.active) > a { c: $light 0 $darken }
+                c: cm;
+                .navigationItem-counter { color: inherit }
+                .navigationItem-aside { background: none }
+                ../:hover:not(.active) > a { c: fg 0 hl }
             }
             &.active {
-                colors: $light 0 $darker;
+                c: fg 0 bd;
                 // Fixes icon colors.
                 a, span { color: inherit !important }
             }
             // Remove the gradient.
-            &::after { background: none !important; }
+            &::after { background: none !important }
             // Use filled style for starred messages icon.
             .fa.fa-star-o {
-                colors: $accent, 0, 0;
-                &::before { content: "\f005"; }
+                c: ac;
+                &::before { content: "\f005" }
             }
         }
         // Labels.
-        .sidebarApp-link { colors: $light 0 0 }
+        .sidebarApp-link { c: fg }
         .menuLabel-item {
-            em { colors: $lighter 0 0 }
+            em { c: cm }
             .menuLabel-link {
                 transition: 0.15s ease;
-                colors: $lighter 0 0;
-                ../.active .menuLabel-title { colors: $light 0 0 }
-                ../:hover .menuLabel-link { c: $light 0 $darken }
+                c: cm;
+                ../.active .menuLabel-title { c: fg }
+                ../:hover .menuLabel-link { c: fg 0 hl }
             }
         }
         // Compose/back button.
@@ -652,21 +621,21 @@
             font-weight: bold;
             rad: r;
             transition: 0.15s ease;
-            c: $light $darker $darken;
+            c: fg bd hl;
             box-shadow: bsh;
             &:hover { opacity: 0.8 }
         }
         // Scrollbar.
         [class*="_draggerContainer"] {
-            [class*="Rail"] { colors: 0 0 $darker }
-            [class*="_bar"] { colors: 0 0 $accent }
+            [class*="Rail"] { c: 0 0 bd }
+            [class*="_bar"] { c: 0 0 ac }
         }
     }
 
     // * Main -> Content.
     #pm_main {
-        color: $light;
-        background-color: $t;
+        color: fg;
+        background-color: t;
 
         // * Feature -> Custom sidebar width.
         @media screen and (min-width: 900px) {
@@ -680,36 +649,36 @@
                 .conversation-wrapper > .conversation {
                     margin: 0 auto;
                     max-width: var(--width);
-                    box-shadow: 1px 0 0 $darker, -1px 0 0 $darker;
+                    box-shadow: 1px 0 bd, -1px 0 bd;
                 }
             }
             // * Content -> Row view.
             #conversation-list-rows {}
             // * Content -> Column view.
             #conversation-list-columns {
-                colors: 0, $darker, $dark;
+                c: 0 bd bg;
             }
         }
         // Conversations.
         .conversation {
-            colors: 0 $darker $dark;
-            &.read { colors: 0 0 $dark }
+            c: 0 bd bg;
+            &.read { c: 0 0 bg }
             &.marked::before {
                 width: 4px;
-                colors: 0 0 $green;
+                c: 0 0 green;
             }
             // Remove backgrounds.
-            .subject, .pm_labels { background: $t !important; }
+            .subject, .pm_labels { background: t !important }
             // Highlight unread messages.
             &:not(.read) {
                 background-image: linear-gradient(
-                    to right, $darker -100%, $dark
+                    to right, bd -100%, bg
                 ) !important;
             }
             // Hover event.
             &:hover {
                 background-image: none !important;
-                colors: 0, 0, $darken;
+                c: 0 0 hl;
             }
         }
     }
@@ -717,34 +686,34 @@
     // * Content -> Toolbar.
     .pm_toolbar {
         padding: 8px !important;
-        colors: 0, 0, $dark;
-        box-shadow: 0 1px 0 0 $darker;
+        c: 0 0 bg;
+        box-shadow: 0 1px bd;
         // Reset height.
         &, .elements-selector { height: unset }
         .pm_buttons {
-            colors: $lighter, 0, 0;
+            c: cm;
             a, button { box-shadow: bsh }
             &-child, a, button {
-                colors: 0, $darker, $dark;
+                c: 0 bd bg;
                 // TODO: Temporary implementation.
                 &:hover:not(.fa-ban):not(.fa-archive):not(.fa-trash-o):not(
                     .fa-inbox):not(.fa-times-circle-o) {
-                    colors: $light, 0, 0;
+                    c: fg;
                 }
-                &.active, &:hover { c: $light 0 $darken }
+                &.active, &:hover { c: fg 0 hl }
             }
             &.disabled {
                 &, a[class] {
                     opacity: 0.75 !important;
-                    colors: $lighter, $darker, $darker;
+                    c: cm bd bd;
                     box-shadow: none !important;
                 }
             }
         }
         .action [class*="LayoutBtns-btn"] {
             transition: 0.15s ease;
-            img { filter: grayscale(100%); }
-            &:focus { colors: $light 0 $dark }
+            img { filter: grayscale(100%) }
+            &:focus { c: fg 0 bg }
         }
     }
 
@@ -761,59 +730,59 @@
         // Message header.
         header[id*="header" i] {
             z-index: 1;
-            colors: 0, $darker, $dark;
+            c: 0 bd bg;
             h1 {
                 letter-spacing: 0;
                 padding: 8px 30px 8px 0;
                 .starButton {
                     right: 1px; top: 10px;
                     // TODO: Fix and polish animation.
-                    &:hover a::before { colors: $accent, 0, 0; }
+                    &:hover a::before { c: ac }
                 }
             }
         }
         // Message content.
         .message {
             rad: r;
-            colors: 0, $darker, $dark;
+            c: 0 bd bg;
             &.open { box-shadow: bsh }
-            &.unread { colors: 0 0 $darker; }
+            &.unread { c: 0 0 bd }
             .more {
-                colors: $light $darker $dark;
-                &:not([class*='-toggle']) { colors: $accent $accent 0 }
+                c: fg bd bg;
+                &:not([class*='-toggle']) { c: ac ac }
             }
             .summary:not(._xd) {
                 rad: r r 0 0;
-                colors: 0, $darker, $darken;
+                c: 0 bd hl;
                 // Summary in un-open message state.
                 ../:not(.open) > .summary { rad: r }
                 // Transparentize all elements.
-                .summary-right:not(._is):not(._xd) { &, * { colors: 0, 0, $t; }}
+                .summary-right:not(._is):not(._xd) { &, * { c: 0 0 t }}
                 // Rounded corners for message body.
                 + div .frame {
                     rad: 0 0 r r;
-                    colors: 0 0 $t;
+                    c: 0 0 t;
                 }
-                .pm_badge, .pm_tag { colors: $lighter 0 $darker }
+                .pm_badge, .pm_tag { c: cm 0 bd }
             }
             .details {
-                colors: 0, $darker, $darken;
+                c: 0 bd hl;
                 // TODO: Possible refactor with global `pm_buttons` styles.
                 .action-row .pm_buttons > a {
                     transition: 0.15s ease;
-                    colors: $lighter, $darker, $dark;
-                    &.active, &:hover { colors: $light, 0, $darker; }
+                    c: cm bd bg;
+                    &.active, &:hover { c: fg 0 bd }
                 }
                 .action-row {
-                    .toggleDetails { colors: $accent 0 $t }
+                    .toggleDetails { c: ac 0 t }
                 }
                 // Alerts and stuff.
                 [class*="messageExtra-"] > [class*="-container"] {
                     rad: r;
-                    colors: $lighter, 0, $darker;
-                    a { colors: $accent, 0, 0; }
-                    span { colors: $lighter, 0, 0; }
-                    button { colors: $lighter, $dark, $darker; }
+                    c: cm 0 bd;
+                    a { c: ac }
+                    span { c: cm }
+                    button { c: cm bg bd }
                 }
             }
             // ? Scroll past the last message in conversations.
@@ -834,14 +803,14 @@
                     }
                 }
             }
-            blockquote { colors: $lighter $darker 0; }
+            blockquote { c: cm bd 0 }
             pre {
                 rad: r;
-                colors: $light $darker $dark;
+                c: fg bd bg;
                 box-shadow: bsh;
             }
-            div[style*="background"] { colors: 0 0 $t }
-            [style*="border"] { colors: 0 $darker 0 }
+            div[style*="background"] { c: 0 0 t }
+            [style*="border"] { c: 0 bd }
             // ! Possibly reset custom emails.
             .bodyDecrypted {
                 // * Feature -> Custom code font.
@@ -849,24 +818,24 @@
                 // Try to center the content.
                 > div[style*="width"] { margin: 0 auto !important }
                 a[style*="color"] {
-                    colors: $blue 0 0;
+                    c: blue;
                     &:hover { text-decoration: underline }
                 }
-                div, p, span, i { colors: $lighter 0 0 }
-                h1, h2, h3, h4, h5, h6 { colors: $light 0 0; }
-                table { tr, th, td { colors: $lighter $darker $dark; }}
-                img { filter: invert(1) hue-rotate(180deg) !important; }
+                div, p, span, i { c: cm }
+                h1, h2, h3, h4, h5, h6 { c: fg }
+                table { tr, th, td { c: cm bd bg }}
+                img { filter: invert(1) hue-rotate(180deg) !important }
             }
         }
         // Attachments.
         #attachmentArea {
-            colors: 0, $darker, $t;
+            c: 0 bd t;
             .listAttachments-list {
                 padding-top: 10px;
                 .listAttachments-att {
                     rad: r;
-                    colors: $lighter, $darker, $dark;
-                    &::after { colors: 0, $darker, 0; }
+                    c: cm bd bg;
+                    &::after { c: 0 bd 0 }
                 }
             }
         }
@@ -892,7 +861,7 @@
                 transition: 0.15s ease;
                 border: 1px solid !important;
                 rad: 3px;
-                colors: 0 0 $dark;
+                c: 0 0 bg;
                 &:hover { opacity: 0.6 }
                 // Stacked labels.
                 ^[1][data-format="stack"] [class*="-label"] {
@@ -902,7 +871,7 @@
             // More labels button.
             [class*="-more"] {
                 margin-left: 0.25rem;
-                colors: $lighter $lighter 0;
+                c: cm cm 0;
             }
         }
     }
@@ -911,42 +880,40 @@
     #pm_composer .composer {
         rad: r;
         border: 1px solid;
-        colors: $lighter, $darker, $dark;
+        c: cm bd bg;
         box-shadow: bsh;
         // Header.
         // TODO: Optimize for different components.
         &Header-container, &Options-container {
-            colors: $light, 0, $darker;
+            c: fg 0 bd;
         }
         // Inputs.
         .row {
-            &, select, input { colors: $lighter, $darker, $t; }
-            .composerInputMeta-overlay { colors: $light, 0, $darker; }
-            .svg-ellipsis-clipper { display: none; }
+            &, select, input { c: cm bd t }
+            .composerInputMeta-overlay { c: fg 0 bd }
+            .svg-ellipsis-clipper { display: none }
         }
-        footer {
-            colors: $light, $darker, $t;
-        }
+        footer { c: fg bd t }
         // TODO: Possible refactor with global `pm_button` styles.
         .pm_button {
             rad: calc(var(--radius) / 2);
             transition: 0.15s ease;
-            colors: $lighter, $darker, $dark;
-            &:hover { colors: $light, 0, $darker; }
+            c: cm bd bg;
+            &:hover { c: fg 0 bd }
             &.primary {
-                colors: $white, $accent, $accent;
-                &:hover { colors: $accent, 0, $darker; }
+                c: white ac ac;
+                &:hover { c: ac 0 bd }
             }
         }
     }
 
     // * Content -> Composer additions.
     .squire-container {
-        colors: 0 0 $dark;
-        input, select, textarea { colors: $light 0 $dark; }
+        c: 0 0 bg;
+        input, select, textarea { c: fg 0 bg }
         // Popouts.
         .squire-popover {
-            colors: 0 $darker $dark;
+            c: 0 bd bg;
             &, &-second { rad: r !important }
         }
         // Toolbar.
@@ -955,45 +922,45 @@
             button { rad: r }
         }
         [class*="squireToolbar"] {
-            colors: 0 $darker $t;
+            c: 0 bd t;
             // Dropdown list.
             [class*="-select-list"] {
-                colors: 0 0 $dark;
+                c: 0 0 bg;
                 box-shadow: bsh;
                 > li {
                     padding: 0 1.5rem;
-                    colors: $lighter 0 0;
-                    &:hover { colors: $light 0 $darker; }
+                    c: cm;
+                    &:hover { c: fg 0 bd }
                 }
             }
             // On event.
             [class*="squireToolbar-action-"] {
-                colors: 0 $darker $dark;
-                &:hover { colors: 0 0 $darker; }
+                c: 0 bd bg;
+                &:hover { c: 0 0 bd }
                 [class*="triangle-with-shadow"]::after {
                     border-width: 5px;
-                    colors: 0 $darker $dark;
+                    c: 0 bd bg;
                 }
             }
         }
         // Encrypt.
-        header[class*="Encrypt-"] { colors: 0 0 $t; }
+        header[class*="Encrypt-"] { c: 0 0 t }
         // * Feature -> Custom code font.
         .plaintext-editor { font-family: var(--mo-font) }
     }
     // Expiration settings.
     .alert, .alert.alert-info {
-        colors: $light 0 $t;
+        c: fg 0 t;
         input[type], .pm_select {
             border-radius: calc(var(--radius) / 2) !important;
-            colors: $light $darker $dark;
+            c: fg bd bg;
         }
     }
 
     // * Squire -> Text area.
     .angular-squire-wrapper {
         margin-top: -1px;
-        colors: 0 $darker 0;
+        c: 0 bd 0;
         &, & > iframe { rad: 0 0 r r }
     }
 
@@ -1003,65 +970,58 @@
         .modal-dialog {
             rad: r;
             border-width: 1px;
-            colors: 0, $darker, $dark;
+            c: 0 bd bg;
             .modal-content {
-                colors: 0, $darker, $t;
+                c: 0 bd t;
                 .modal-body {
-                    box-shadow: 0 1px $darker, 0 -1px $darker;
+                    box-shadow: 0 1px bd, 0 -1px bd;
                     // On draft deletion.
-                    .alert { c: 0 0 $darken }
+                    .alert { c: 0 0 hl }
                 }
             }
-            .modal-footer { colors: 0, 0, $t; }
+            .modal-footer { c: 0 0 t }
         }
         .modal-overlay {
             opacity: 0.8;
-            c: 0 0 $dark;
+            c: 0 0 bg;
         }
         // Buttons.
         .close {
             top: 20px !important;
             right: 20px !important;
             transition: 0.15s ease;
-            colors: $light, 0, $t;
-            &:hover { colors: $accent, 0, 0; }
+            c: fg 0 t;
+            &:hover { c: ac }
         }
         .pm_button {
             rad: r;
             transition: 0.15s ease;
-            colors: $lighter, $darker, $dark;
-            &:hover, &:focus { colors: $light, 0, $darker; }
+            c: cm bd bg;
+            &:hover, &:focus { c: fg 0 bd }
             &.primary {
-                colors: $accent, $accent, 0;
-                &:hover, &:focus { colors: $white, $accent, $accent; }
+                c: ac ac;
+                &:hover, &:focus { c: white ac ac }
             }
         }
         // TODO: Figure out where exactly this goes.
-        .modal-details { colors: 0, $darker, 0; }
-        .labelModal-container .pm_button.primary {
-            color: var(--lighter);
-            border-color: var(--accent);
-            background-color: var(--accent);
-        }
-        .dropzone {
-            border-color: var(--shadow);
-            background: var(--darker);
-        }
+        .modal-details { c: 0 bd 0 }
+        .labelModal-container .pm_button.primary { c: white ac ac 0 0 0 }
+        .dropzone { c: 0 bd hl }
     }
 
 
     // * Contacts.
     .contacts-container {
         [class*="toolbar" i] {
-            colors: 0 $darker 0
+            c: 0 bd;
             button {
-                colors: $lighter $darker 0
-                &:hover { colors: $light 0 $darker }
-                &.primary { colors: $accent $accent 0 }
+                c: cm bd;
+                &:hover { c: fg 0 bd }
+                &.primary { c: ac ac }
             }
         }
         .contactList-container {
-            colors: 0 $darker $t;
+            c: 0 bd t;
         }
     }
 
@@ -1074,21 +1034,21 @@
         }
         // Billing.
         .settingsDashboard-plans {
-            colors: 0, 0, $t;
-            &, &::after, &::before { background: none !important; }
+            c: 0 0 t;
+            &, &::after, &::before { background: none !important }
             [class*="Column-container"] {
                 margin: 0 4px 0 0;
                 rad: r !important;
-                colors: $lighter, $darker, $dark;
+                c: cm bd bg;
                 box-shadow: none !important;
-                > :not(:last-child) { colors: 0, $darker, 0; }
+                > :not(:last-child) { c: 0 bd }
                 header {
                     rad: r r 0 0;
-                    colors: 0, $red, 0;
+                    c: 0 red;
                     box-shadow: none;
                     > .isCurrent {
                         top: -32px;
-                        colors: $light, $t, $t;
+                        c: fg t t;
                         box-shadow: none;
                     }
                 }
@@ -1096,11 +1056,11 @@
                 [class*="totalRows-label"] { background: none; }
                 // TODO: Move to global components.
                 .pm_select {
-                    colors: $lighter, $darker, $dark;
-                    box-shadow: 0 0 0 1px inset $darker;
+                    c: cm bd bg;
+                    box-shadow: inner;
                     select:active, select:focus {
-                        colors: $light, 0, 0;
-                        box-shadow: 0 0 0 1px inset $accent;
+                        c: fg;
+                        box-shadow: inset 0 0 0 1px ac;
                     }
                 }
             }

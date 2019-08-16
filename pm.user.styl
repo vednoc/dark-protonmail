@@ -142,7 +142,7 @@
         #tour-layout [class*="Btns-btn-"]:hover,
         &[class*="Body-rows"] #tour-layout [class*="Btns-btn-rows"],
         &:not([class*="Body-rows"]) #tour-layout [class*="Btns-btn-column"] {
-            colors: $accent, 0, $darker;
+            c: $accent 0 $darken;
             box-shadow: inset bsh !important;
         }
 
@@ -554,7 +554,7 @@
         }
         // Wide dropdowns.
         &.wide {
-          padding: 0;
+          padding: 16px;
           > * { padding: 0 8px !important }
         }
         > a, > button, > ul > li { &:hover { c: 0 0 $darker }}
@@ -620,7 +620,7 @@
                 colors: $lighter 0 0;
                 .navigationItem-counter { color: inherit; }
                 .navigationItem-aside { background: none; }
-                ../:hover:not(.active) > a { colors: $light 0 $darker }
+                ../:hover:not(.active) > a { c: $light 0 $darken }
             }
             &.active {
                 colors: $light 0 $darker;
@@ -643,17 +643,18 @@
                 transition: 0.15s ease;
                 colors: $lighter 0 0;
                 ../.active .menuLabel-title { colors: $light 0 0 }
-                ../:hover .menuLabel-link { colors: $light 0 $darker }
+                ../:hover .menuLabel-link { c: $light 0 $darken }
             }
         }
         // Compose/back button.
         [class*="-compose"], [class*="-back"] {
             margin: 16px 0;
+            font-weight: bold;
             rad: r;
             transition: 0.15s ease;
-            colors: $light $darker $t;
+            c: $light $darker $darken;
             box-shadow: bsh;
-            &:hover { colors: $accent 0 $darker }
+            &:hover { opacity: 0.8 }
         }
         // Scrollbar.
         [class*="_draggerContainer"] {
@@ -730,7 +731,7 @@
                     .fa-inbox):not(.fa-times-circle-o) {
                     colors: $light, 0, 0;
                 }
-                &.active, &:hover { colors: $light 0 $darker; }
+                &.active, &:hover { c: $light 0 $darken }
             }
             &.disabled {
                 &, a[class] {
@@ -782,7 +783,10 @@
                 &:not([class*='-toggle']) { colors: $accent $accent 0 }
             }
             .summary:not(._xd) {
+                rad: r r 0 0;
                 colors: 0, $darker, $darken;
+                // Summary in un-open message state.
+                ../:not(.open) > .summary { rad: r }
                 // Transparentize all elements.
                 .summary-right:not(._is):not(._xd) { &, * { colors: 0, 0, $t; }}
                 // Rounded corners for message body.

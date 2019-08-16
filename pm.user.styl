@@ -1002,9 +1002,17 @@
             colors: 0, $darker, $dark;
             .modal-content {
                 colors: 0, $darker, $t;
-                .modal-body { box-shadow: 0 1px 0 $darker, 0 -1px 0 $darker; }
+                .modal-body {
+                    box-shadow: 0 1px $darker, 0 -1px $darker;
+                    // On draft deletion.
+                    .alert { c: 0 0 $darken }
+                }
             }
             .modal-footer { colors: 0, 0, $t; }
+        }
+        .modal-overlay {
+            opacity: 0.8;
+            c: 0 0 $dark;
         }
         // Buttons.
         .close {

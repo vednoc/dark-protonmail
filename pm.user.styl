@@ -766,23 +766,26 @@
                 .pm_badge, .pm_tag { c: cm 0 bd }
             }
             .details {
+                padding: 8px 8px 0;
+                border-top: 1px solid bd;
                 c: 0 bd hl;
-                // TODO: Possible refactor with global `pm_buttons` styles.
-                .action-row .pm_buttons > a {
-                    transition: 0.15s ease;
-                    c: cm bd bg;
-                    &.active, &:hover { c: fg 0 bd }
-                }
                 .action-row {
                     .toggleDetails { c: ac 0 t }
+                    // TODO: Refactor.
+                    .pm_buttons > a {
+                        transition: 0.15s ease;
+                        c: cm bd bg;
+                        &.active, &:hover { c: fg 0 bd }
+                    }
                 }
                 // Alerts and stuff.
                 [class*="messageExtra-"] > [class*="-container"] {
-                    rad: r;
-                    c: cm 0 bd;
+                    padding: 8px 0;
+                    margin: 0;
+                    c: cm 0 t;
+                    border-top: 1px solid bd;
                     a { c: ac }
-                    span { c: cm }
-                    button { c: cm bg bd }
+                    span { c: fg }
                 }
             }
             // ? Scroll past the last message in conversations.

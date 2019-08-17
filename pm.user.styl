@@ -229,9 +229,9 @@
         }
         [class*="link-signup-button"] {
             rad: r;
+            c: cm bd hl;
             transition: 0.15s ease;
-            c: fg bd bd;
-            &:hover { c: ac 0 bg }
+            &:hover { c: fg 0 bd }
         }
         #pm_footer { c: cm }
         #pm_footer a { c: ac }
@@ -287,6 +287,8 @@
                 c: fg ac t;
             }
         }
+        // Login page.
+        .newBugReport-container:hover { c: fg 0 hl }
     }
 
     // * Search bar.
@@ -335,10 +337,13 @@
 
     // * Global -> Buttons.
     .pm_button {
+        rad: r;
+        c: cm bd bg;
         transition: 0.15s ease;
-        &.primary {
-            c: ac ac bg;
-            &:hover { c: white 0 ac }
+        &:hover { c: fg 0 hl }
+        &.primary:not(#z) {
+            c: white ac ac;
+            &:hover { opacity: 0.8 }
         }
     }
 

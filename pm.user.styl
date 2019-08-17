@@ -88,6 +88,7 @@
     green   = var(--green);
     white   = var(--white);
     r       = var(--radius);
+    rc      = calc(var(--radius) - 1px);
     t       = var(--t);
     outer   = 0 0 0 1px bd;
     inner   = inset outer;
@@ -672,7 +673,7 @@
             // Highlight unread messages.
             &:not(.read) {
                 background-image: linear-gradient(
-                    to right, bd -100%, bg
+                    to right, hl, bg
                 ) !important;
             }
             // Hover event.
@@ -728,7 +729,7 @@
             }
         }
         // Message header.
-        header[id*="header" i] {
+        header[id*="Header"] {
             z-index: 1;
             c: 0 bd bg;
             h1 {
@@ -745,23 +746,38 @@
         .message {
             rad: r;
             c: 0 bd bg;
-            &.open { box-shadow: bsh }
-            &.unread { c: 0 0 bd }
+            &.open {
+                box-shadow: bsh;
+                .summary { rad: rc rc 0 0 }
+                // When 'show details' is active.
+                &.details:not(.xd) {
+                    .summary { height: auto }
+                    .meta .contact em {
+                        position: unset;
+                        display: inline;
+                        bottom: 0;
+                        c: fg;
+                    }
+                }
+            }
+            &.unread {
+                c: 0 0 bd;
+                > .summary { c: 0 0 bd }
+            }
             .more {
                 c: fg bd bg;
                 &:not([class*='-toggle']) { c: ac ac }
             }
-            .summary:not(._xd) {
-                rad: r r 0 0;
+            .summary {
                 c: 0 bd hl;
                 // Summary in un-open message state.
-                ../:not(.open) > .summary { rad: r }
+                ../:not(.open) > .summary { rad: rc }
                 // Transparentize all elements.
-                .summary-right:not(._is):not(._xd) { &, * { c: 0 0 t }}
-                // Rounded corners for message body.
+                .summary-right:not(#sc) { &, * { c: 0 0 t }}
+                // Message body.
                 + div .frame {
-                    rad: 0 0 r r;
-                    c: 0 0 t;
+                    rad: 0 0 rc rc;
+                    c: 0 0 bg;
                 }
                 .pm_badge, .pm_tag { c: cm 0 bd }
             }

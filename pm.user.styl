@@ -770,8 +770,11 @@
                 > .summary { c: 0 0 bd }
             }
             .more {
+                margin: 0 !important;
                 c: fg bd bg;
                 &:not([class*='-toggle']) { c: ac ac }
+                /// Fix the specificity conflict.
+                + .protonmail_quote { margin-top: 15px !important }
             }
             .summary {
                 c: 0 bd hl;
@@ -781,6 +784,7 @@
                 .summary-right:not(#sc) { &, * { c: 0 0 t }}
                 // Message body.
                 + div .frame {
+                    padding: 10px;
                     rad: 0 0 rc rc;
                     c: 0 0 bg;
                 }
@@ -845,7 +849,7 @@
                     c: blue;
                     &:hover { text-decoration: underline }
                 }
-                div, p, span, i { c: cm }
+                div, p, span, i { c: fg }
                 h1, h2, h3, h4, h5, h6 { c: fg }
                 table { tr, th, td { c: cm bd bg }}
                 img { filter: invert(1) hue-rotate(180deg) !important }

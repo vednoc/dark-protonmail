@@ -841,6 +841,12 @@
             [style*="border"] { c: 0 bd }
             // ! Possibly reset custom emails.
             .bodyDecrypted {
+                /// HACK: GMail quotes don't have a toggle. :PepeHands:
+                .gmail_quote {
+                    opacity: 0.3;
+                    max-height: 32px;
+                    overflow: hidden;
+                }
                 // * Feature -> Custom code font.
                 &.plain { font-family: var(--mo-font) }
                 // Try to center the content.

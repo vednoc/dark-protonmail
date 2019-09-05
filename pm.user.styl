@@ -864,12 +864,13 @@
         // Attachments.
         #attachmentArea {
             c: 0 bd t;
-            .listAttachments-list {
-                padding-top: 10px;
-                .listAttachments-att {
+            .listAttachments {
+                &-list { padding-top: 10px }
+                &-att {
                     rad: r;
                     c: cm bd bg;
                     &::after { c: 0 bd 0 }
+                    a { c: 0 0 hl }
                 }
             }
         }

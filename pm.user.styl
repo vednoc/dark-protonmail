@@ -16,8 +16,9 @@
 @var text b_radius "Custom border radius" 4px
 @var text max_width "Custom width for row layout" 1000px
 @var text sidebar_width "Custom sidebar width" 200px
-@var text ui_font "Custom UI font" "'custom_font', Arial, Helvetica Nue, Helvetica, sans-serif !important"
-@var text mo_font "Custom mono font" "'custom_font', 'mono', monospace !important"
+@var text ui_font "Custom UI font" "'font_name'"
+@var text mono_font "Custom mono font" "'font_name'"
+@var text emoji_font "Custom emoji font" "'font_name'"
 @var text bg_image "Custom background" "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAYElEQVQ4je3ToRlAIQiFUWdiEvdxEILJCQivksg0usVF7O8atfHHE7kfZc75lV+9dzAzA2utgWUXWmvBYccYYLVWsIjIUV50Ora7g53GO31UdiFVhcMSERgzg4lIjvKgDW1KKbJCEZa/AAAAAElFTkSuQmCC')"
 
 @var color dark    "Dark color.   " #222222
@@ -65,8 +66,14 @@
         --sidebar : sidebar_width;
         --radius  : b_radius;
         --bg-image: bg_image;
-        --ui-font : ui_font;
-        --mo-font : mo_font;
+        --ui-font : ui_font, -apple-system, BlinkMacSystemFont, 'Segoe UI',\
+            Roboto, 'Noto Sans', Ubuntu, Cantarell, 'Helvetica Neue',\
+            var(--emoji-font), sans-serif !important;
+        --mono-font : mono_font, 'Menlo', 'DejaVu Sans Mono', 'Consolas',\
+            'Liberation Mono', 'Ubuntu Mono', 'Courier New',\
+            'andale mono', 'lucida console', monospace;
+        --emoji-font: emoji_font, 'Apple Color Emoji', 'Segoe UI Emoji',\
+            'Segoe UI Symbol', 'Noto Color Emoji';
     }
 
     // * Use stylus-lang variables with CSS variables.

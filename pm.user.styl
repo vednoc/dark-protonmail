@@ -595,6 +595,9 @@
         @media screen and (min-width: 900px) {
             width: var(--sidebar);
         }
+        /// Remove whitespace between nav items.
+        .menu { margin: 0 -20px 0 -25px }
+        /// Nav -> Main items.
         .sidebarApp-item {
             // List items.
             .navigationItem-item {
@@ -602,7 +605,7 @@
                 c: cm;
                 .navigationItem-counter { color: inherit }
                 .navigationItem-aside { background: none }
-                ../:hover:not(.active) > a { c: fg 0 hl }
+                ../:hover:not(.active) > * { c: fg 0 hl }
             }
             &.active {
                 c: fg 0 bd;
@@ -617,11 +620,12 @@
                 &::before { content: "\f005" }
             }
         }
-        // Labels.
+        // Nav -> Labels.
         .sidebarApp-link { c: fg }
         .menuLabel-item {
             em { c: cm }
             .menuLabel-link {
+                height: 31px;
                 transition: 0.15s ease;
                 c: cm;
                 ../.active .menuLabel-title { c: fg }

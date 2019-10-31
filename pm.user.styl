@@ -356,10 +356,32 @@
                     &:focus { box-shadow: inset 0 0 0 1px blue }
                 }
             }
-            // Header.
-            [class*="-advanced-main"] {
-                box-shadow: 0 1px bd;
+        }
+    }
+
+    // Global -> Calendar.
+    .pika {
+        /// Wrapper.
+        &-single:not(#z) {
+            rad: 3px;
+            c: red bd bg;
+            box-shadow: bsh;
+            &-lendar {
+
             }
+        }
+        /// Header.
+        &-label { c: fg 0 t }
+        /// Buttons.
+        &-prev {
+            background: none;
+            &::before { content: '<-'; c: red }
+        }
+        /// Body.
+        &-table th { c: cm }
+        &-day {
+            c: cm 0 t;
+            /.is-today & { c: ac }
         }
     }
 

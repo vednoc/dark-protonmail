@@ -398,14 +398,14 @@
         &-arrow { border-color: black }
     }
 
-    // * Global -> Notifications.
+    // Global -> Notifications.
     .cg-notify-message {
+        font-size: 100%;
         rad: r;
         box-shadow: bsh !important;
-        &.notification-success {
-            c: 0 0 green;
-            span { c: white }
-        }
+        &.notification-success { c: white 0 green }
+        &.notification-danger { c: white 0 red }
+        &.notification-info { c: fg 0 bd }
     }
 
     // * Global -> Labels.
